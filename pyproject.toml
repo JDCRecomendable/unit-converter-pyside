@@ -1,5 +1,5 @@
 [project]
-name = "PySide Widgets Project"
+name = "Unit Converter"
 
 [tool.pyside6-project]
 files = ["form.ui", "mainwindow.py", "unit_conversion.py"]
