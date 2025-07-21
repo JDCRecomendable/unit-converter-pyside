@@ -36,6 +36,8 @@ class MainWindow(QMainWindow):
             unit_category_item.setFlags(unit_category_item.flags()  & ~Qt.ItemIsEditable)
             unit_category_model.appendRow(unit_category_item)
 
+        self.ui.statusbar.showMessage("Application ready. Select a unit category.")
+
     @Slot("QModelIndex")
     def on_unitCategoryListView_clicked(self, model_index: QModelIndex):
         self.from_unit_model.clear()
@@ -58,6 +60,8 @@ class MainWindow(QMainWindow):
             to_index = self.to_unit_model.index(0, 0)
             self.ui.toUnitPicker.setCurrentIndex(to_index)
 
+        self.ui.statusbar.showMessage(f"{target_unit_category.get_name()} units loaded.")
+
     @Slot("QModelIndex")
     def on_fromUnitPicker_clicked(self, model_index: QModelIndex):
         self.perform_conversion()
@@ -74,11 +78,13 @@ class MainWindow(QMainWindow):
     def on_resetButton_clicked(self, checked: bool):
         self.ui.fromUnitInput.setText("")
         self.perform_conversion()
+        self.ui.statusbar.showMessage("Text fields have been reset.")
 
     def perform_conversion(self):
         raw_value = self.ui.fromUnitInput.text()
         if len(raw_value) == 0:
             self.ui.toUnitOutput.setText("")
+            self.ui.statusbar.clearMessage()
             return
         value = Decimal(raw_value)
         unit_category_index = self.ui.unitCategoryListView.currentIndex()
@@ -89,3 +95,4 @@ class MainWindow(QMainWindow):
         to_unit = target_units.get_units()[to_unit_index.row()]
         result = str(convert(value, from_unit, to_unit))
         self.ui.toUnitOutput.setText(result)
+        self.ui.statusbar.showMessage(f"Conversion from {from_unit.get_name()} to {to_unit.get_name()} successful.")
