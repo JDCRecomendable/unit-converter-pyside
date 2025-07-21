@@ -145,6 +145,38 @@ class ProportionalUnit(LinearUnit):
         super().__init__(name, abbr, m, Decimal(0))
 
 
+class UnitCategory:
+    def __init__(self, name: str):
+        """
+        Initializes a unit category and creates an empty list of Unit objects sorted by name.
+
+        Args:
+            name (str): The name of the unit category instance to add.
+        """
+        self.name = name
+        self.units: list[Unit] = []
+
+    def get_name(self):
+        """
+        Returns the name of the unit category.
+
+        Returns:
+            str: The name of the unit category.
+        """
+        return self.name
+
+    def add_unit(self, unit: Unit):
+        """
+        Adds a unit to the category, maintaining alphabetical order by unit name.
+
+        Args:
+            unit (Unit): The unit instance to add.
+        """
+        names = [u.get_name() for u in self.units]
+        index = bisect.bisect_left(names, unit.get_name())
+        self.units.insert(index, unit)
+
+
 def convert(value: Decimal, from_unit: Unit, to_unit: Unit) -> Decimal:
     """
     Converts a numerical value from one unit to another using an intermediate SI representation.
