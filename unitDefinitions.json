@@ -517,5 +517,106 @@
                 "m": "0.00000492892159375"
             }
         }
+    ],
+    "Time": [
+        {
+            "name": "Second",
+            "abbr": "s",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "1"
+            }
+        },
+        {
+            "name": "Millisecond",
+            "abbr": "ms",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.001"
+            }
+        },
+        {
+            "name": "Microsecond",
+            "abbr": "μs",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000001"
+            }
+        },
+        {
+            "name": "Nanosecond",
+            "abbr": "ns",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.00000001"
+            }
+        },
+        {
+            "name": "Minute",
+            "abbr": "min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "60"
+            }
+        },
+        {
+            "name": "Hour",
+            "abbr": "h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "3600"
+            }
+        },
+        {
+            "name": "Day",
+            "abbr": "d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "86400"
+            }
+        },
+        {
+            "name": "Week",
+            "abbr": "wk",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "604800"
+            }
+        },
+        {
+            "name": "Fortnight",
+            "abbr": "fortn",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1209600"
+            }
+        },
+        {
+            "name": "Year",
+            "abbr": "yr",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "31536000"
+            }
+        },
+        {
+            "name": "Year (Leap)",
+            "abbr": "leap yr",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "31622400"
+            }
+        }
     ]
 }
