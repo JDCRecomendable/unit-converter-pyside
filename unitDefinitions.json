@@ -1,0 +1,202 @@
+{
+    "Length": [
+        {
+            "name": "Meter",
+            "abbr": "m",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "1"
+            }
+        },
+        {
+            "name": "Nautical Mile",
+            "abbr": "nmi",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1852"
+            }
+        },
+        {
+            "name": "Hectometer",
+            "abbr": "hm",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "100"
+            }
+        },
+        {
+            "name": "Kilometer",
+            "abbr": "km",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000"
+            }
+        },
+        {
+            "name": "Decimeter",
+            "abbr": "dm",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.1"
+            }
+        },
+        {
+            "name": "Centimeter",
+            "abbr": "cm",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.01"
+            }
+        },
+        {
+            "name": "Millimeter",
+            "abbr": "mm",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.001"
+            }
+        },
+        {
+            "name": "Micrometer",
+            "abbr": "μm",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000001"
+            }
+        },
+        {
+            "name": "Nanometer",
+            "abbr": "nm",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000000001"
+            }
+        },
+        {
+            "name": "Ångström",
+            "abbr": "Å",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.0000000001"
+            }
+        },
+        {
+            "name": "Mile",
+            "abbr": "mi",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1609.344"
+            }
+        },
+        {
+            "name": "Furlong",
+            "abbr": "fur",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "201.168"
+            }
+        },
+        {
+            "name": "Chain",
+            "abbr": "ch",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "20.1168"
+            }
+        },
+        {
+            "name": "Rod",
+            "abbr": "r",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "5.0292"
+            }
+        },
+        {
+            "name": "Horse Length",
+            "abbr": "hl",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "2.4384"
+            }
+        },
+        {
+            "name": "Fathom",
+            "abbr": "ftm",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1.8288"
+            }
+        },
+        {
+            "name": "Yard",
+            "abbr": "yd",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.9144"
+            }
+        },
+        {
+            "name": "Foot",
+            "abbr": "ft",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.3048"
+            }
+        },
+        {
+            "name": "Inch",
+            "abbr": "in",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.0254"
+            }
+        },
+        {
+            "name": "Astronomical Unit",
+            "abbr": "AU",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "149597900000"
+            }
+        },
+        {
+            "name": "Light-Year",
+            "abbr": "ly",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "9460730000000000"
+            }
+        },
+        {
+            "name": "Parsec",
+            "abbr": "pc",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "30856782064650000"
+            }
+        }
+    ]
+}
