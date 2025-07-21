@@ -2,6 +2,8 @@
 
 A rewrite of the original unit converter at: https://github.com/JDCRecomendable/unit-converter.
 
+![Main Screen](screenshots/main-screen.png)
+
 ## Roadmap
 
 * [X] Migrate to PySide6
