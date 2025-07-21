@@ -90,9 +90,18 @@ class MainWindow(QMainWindow):
         unit_category_index = self.ui.unitCategoryListView.currentIndex()
         from_unit_index = self.ui.fromUnitPicker.currentIndex()
         to_unit_index = self.ui.toUnitPicker.currentIndex()
+
+        from_unit_index_int = from_unit_index.row()
+        to_unit_index_int = to_unit_index.row()
+        if (from_unit_index_int == -1 or to_unit_index_int == -1):
+            self.ui.fromUnitInput.setText("")
+            self.ui.toUnitOutput.setText("")
+            self.ui.statusbar.clearMessage()
+            return
+
         target_units = self.unit_definitions[unit_category_index.row()]
-        from_unit = target_units.get_units()[from_unit_index.row()]
-        to_unit = target_units.get_units()[to_unit_index.row()]
+        from_unit = target_units.get_units()[from_unit_index_int]
+        to_unit = target_units.get_units()[to_unit_index_int]
         result = str(convert(value, from_unit, to_unit))
         self.ui.toUnitOutput.setText(result)
         self.ui.statusbar.showMessage(f"Conversion from {from_unit.get_name()} to {to_unit.get_name()} successful.")
