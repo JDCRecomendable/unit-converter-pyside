@@ -70,6 +70,11 @@ class MainWindow(QMainWindow):
     def on_fromUnitInput_textEdited(self, text: str):
         self.perform_conversion()
 
+    @Slot(bool)
+    def on_resetButton_clicked(self, checked: bool):
+        self.ui.fromUnitInput.setText("")
+        self.perform_conversion()
+
     def perform_conversion(self):
         raw_value = self.ui.fromUnitInput.text()
         if len(raw_value) == 0:
