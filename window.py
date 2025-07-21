@@ -1,6 +1,8 @@
 # This Python file uses the following encoding: utf-8
+from decimal import Decimal
+
 from PySide6.QtCore import QModelIndex, Qt, Slot
-from PySide6.QtGui import QStandardItem, QStandardItemModel
+from PySide6.QtGui import QDoubleValidator, QStandardItem, QStandardItemModel
 from PySide6.QtWidgets import QMainWindow
 
 # Important:
@@ -8,7 +10,7 @@ from PySide6.QtWidgets import QMainWindow
 #     pyside6-uic form.ui -o ui_form.py, or
 #     pyside2-uic form.ui -o ui_form.py
 from ui_form import Ui_MainWindow
-from unit_conversion import UnitCategory
+from unit_conversion import convert, UnitCategory
 
 class MainWindow(QMainWindow):
     def __init__(self, unit_definitions: list[UnitCategory], parent=None):
@@ -21,10 +23,12 @@ class MainWindow(QMainWindow):
         unit_category_model = QStandardItemModel()
         self.from_unit_model = QStandardItemModel()
         self.to_unit_model = QStandardItemModel()
+        double_validator = QDoubleValidator(parent=self.ui.fromUnitInput)
 
         self.ui.unitCategoryListView.setModel(unit_category_model)
         self.ui.fromUnitPicker.setModel(self.from_unit_model)
         self.ui.toUnitPicker.setModel(self.to_unit_model)
+        self.ui.fromUnitInput.setValidator(double_validator)
 
         for unit_category in self.unit_definitions:
             unit_category_name = unit_category.get_name()
@@ -53,3 +57,18 @@ class MainWindow(QMainWindow):
         if self.to_unit_model.rowCount() > 0:
             to_index = self.to_unit_model.index(0, 0)
             self.ui.toUnitPicker.setCurrentIndex(to_index)
+
+    @Slot(str)
+    def on_fromUnitInput_textEdited(self, text: str):
+        if len(text) == 0:
+            self.ui.toUnitOutput.setText("")
+            return
+        value = Decimal(text)
+        unit_category_index = self.ui.unitCategoryListView.currentIndex()
+        from_unit_index = self.ui.fromUnitPicker.currentIndex()
+        to_unit_index = self.ui.toUnitPicker.currentIndex()
+        target_units = self.unit_definitions[unit_category_index.row()]
+        from_unit = target_units.get_units()[from_unit_index.row()]
+        to_unit = target_units.get_units()[to_unit_index.row()]
+        result = str(convert(value, from_unit, to_unit))
+        self.ui.toUnitOutput.setText(result)
