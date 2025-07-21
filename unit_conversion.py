@@ -1,5 +1,7 @@
-from decimal import Decimal
 from abc import ABC, abstractmethod
+from decimal import Decimal
+from json import load
+from pathlib import Path
 import bisect
 
 
@@ -175,6 +177,24 @@ class UnitCategory:
         names = [u.get_name() for u in self.units]
         index = bisect.bisect_left(names, unit.get_name())
         self.units.insert(index, unit)
+
+
+def load_units(filepath: Path) -> list[UnitCategory]:
+    units = []
+    with open(filepath, "r") as f:
+        unit_definitions = load(f)
+        for unit_category_name in unit_definitions:
+            unit_category = UnitCategory(unit_category_name)
+            for unit_definition in unit_definitions[unit_category_name]:
+                if unit_definition["unitType"] == "proportional":
+                    unit = ProportionalUnit(
+                        unit_definition["name"],
+                        unit_definition["abbr"],
+                        Decimal(unit_definition["conversionFactors"]["m"])
+                    )
+                    unit_category.add_unit(unit)
+            units.append(unit_category)
+    return units
 
 
 def convert(value: Decimal, from_unit: Unit, to_unit: Unit) -> Decimal:
