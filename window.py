@@ -30,6 +30,13 @@ class MainWindow(QMainWindow):
         self.ui.toUnitPicker.setModel(self.to_unit_model)
         self.ui.fromUnitInput.setValidator(double_validator)
 
+        unit_category_selection_model = self.ui.unitCategoryListView.selectionModel()
+        from_unit_selection_model = self.ui.fromUnitPicker.selectionModel()
+        to_unit_selection_model = self.ui.toUnitPicker.selectionModel()
+        unit_category_selection_model.currentChanged.connect(self.on_unitCategoryListView_currentChanged)
+        from_unit_selection_model.currentChanged.connect(self.on_fromUnitPicker_currentChanged)
+        to_unit_selection_model.currentChanged.connect(self.on_toUnitPicker_currentChanged)
+
         for unit_category in self.unit_definitions:
             unit_category_name = unit_category.get_name()
             unit_category_item = QStandardItem(unit_category_name)
@@ -39,7 +46,7 @@ class MainWindow(QMainWindow):
         self.ui.statusbar.showMessage("Application ready. Select a unit category.")
 
     @Slot("QModelIndex")
-    def on_unitCategoryListView_clicked(self, model_index: QModelIndex):
+    def on_unitCategoryListView_currentChanged(self, model_index: QModelIndex):
         self.from_unit_model.clear()
         self.to_unit_model.clear()
 
@@ -63,11 +70,11 @@ class MainWindow(QMainWindow):
         self.ui.statusbar.showMessage(f"{target_unit_category.get_name()} units loaded.")
 
     @Slot("QModelIndex")
-    def on_fromUnitPicker_clicked(self, model_index: QModelIndex):
+    def on_fromUnitPicker_currentChanged(self, model_index: QModelIndex):
         self.perform_conversion()
 
     @Slot("QModelIndex")
-    def on_toUnitPicker_clicked(self, model_index: QModelIndex):
+    def on_toUnitPicker_currentChanged(self, model_index: QModelIndex):
         self.perform_conversion()
 
     @Slot(str)
