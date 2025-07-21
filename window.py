@@ -46,3 +46,10 @@ class MainWindow(QMainWindow):
             to_unit_item = QStandardItem(f"{unit.get_name()} [{unit.get_abbr()}]")
             to_unit_item.setFlags(to_unit_item.flags()  & ~Qt.ItemIsEditable)
             self.to_unit_model.appendRow(to_unit_item)
+
+        if self.from_unit_model.rowCount() > 0:
+            from_index = self.from_unit_model.index(0, 0)
+            self.ui.fromUnitPicker.setCurrentIndex(from_index)
+        if self.to_unit_model.rowCount() > 0:
+            to_index = self.to_unit_model.index(0, 0)
+            self.ui.toUnitPicker.setCurrentIndex(to_index)
