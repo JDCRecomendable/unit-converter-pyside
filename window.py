@@ -58,12 +58,24 @@ class MainWindow(QMainWindow):
             to_index = self.to_unit_model.index(0, 0)
             self.ui.toUnitPicker.setCurrentIndex(to_index)
 
+    @Slot("QModelIndex")
+    def on_fromUnitPicker_clicked(self, model_index: QModelIndex):
+        self.perform_conversion()
+
+    @Slot("QModelIndex")
+    def on_toUnitPicker_clicked(self, model_index: QModelIndex):
+        self.perform_conversion()
+
     @Slot(str)
     def on_fromUnitInput_textEdited(self, text: str):
-        if len(text) == 0:
+        self.perform_conversion()
+
+    def perform_conversion(self):
+        raw_value = self.ui.fromUnitInput.text()
+        if len(raw_value) == 0:
             self.ui.toUnitOutput.setText("")
             return
-        value = Decimal(text)
+        value = Decimal(raw_value)
         unit_category_index = self.ui.unitCategoryListView.currentIndex()
         from_unit_index = self.ui.fromUnitPicker.currentIndex()
         to_unit_index = self.ui.toUnitPicker.currentIndex()
