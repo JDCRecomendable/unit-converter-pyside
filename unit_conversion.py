@@ -1,5 +1,6 @@
 from decimal import Decimal
 from abc import ABC, abstractmethod
+import bisect
 
 
 class Unit(ABC):
@@ -8,6 +9,26 @@ class Unit(ABC):
 
     Subclasses must implement conversion to and from SI (International System of Units).
     """
+    @abstractmethod
+    def get_name(self) -> str:
+        """
+        Returns the full name of the unit.
+
+        Returns:
+            str: The name of the unit.
+        """
+        ...
+
+    @abstractmethod
+    def get_abbr(self) -> str:
+        """
+        Returns the abbreviation of the unit.
+
+        Returns:
+            str: The abbreviated form of the unit.
+        """
+        ...
+
     @abstractmethod
     def from_si(self, value: Decimal) -> Decimal:
         """
@@ -46,16 +67,38 @@ class LinearUnit(Unit):
         - m is the scaling factor
         - c is the offset
     """
-    def __init__(self, m: Decimal, c: Decimal):
+    def __init__(self, name: str, abbr: str, m: Decimal, c: Decimal):
         """
-        Initializes the linear unit with a scale and offset.
+        Initializes the linear unit with a name, abbreviation, scale, and offset.
 
         Args:
+            name (str): The full name of the unit.
+            abbr (str): The unit abbreviation.
             m (Decimal): The scaling factor.
             c (Decimal): The offset value.
         """
+        self.name = name
+        self.abbr = abbr
         self.m = m
         self.c = c
+
+    def get_name(self) -> str:
+        """
+        Returns the full name of the unit.
+
+        Returns:
+            str: The name of the unit.
+        """
+        return self.name
+
+    def get_abbr(self) -> str:
+        """
+        Returns the abbreviation of the unit.
+
+        Returns:
+            str: The abbreviated form of the unit.
+        """
+        return self.abbr
 
     def from_si(self, value: Decimal) -> Decimal:
         """
@@ -90,14 +133,16 @@ class ProportionalUnit(LinearUnit):
     The transformation simplifies to:
         y = m * x
     """
-    def __init__(self, m: Decimal):
+    def __init__(self, name: str, abbr: str, m: Decimal):
         """
-        Initializes the proportional unit with a scale.
+        Initializes the proportional unit with a name, abbreviation, and scale.
 
         Args:
+            name (str): The full name of the unit.
+            abbr (str): The unit abbreviation.
             m (Decimal): The scaling factor.
         """
-        super().__init__(m, Decimal(0))
+        super().__init__(name, abbr, m, Decimal(0))
 
 
 def convert(value: Decimal, from_unit: Unit, to_unit: Unit) -> Decimal:
