@@ -198,5 +198,324 @@
                 "m": "30856782064650000"
             }
         }
+    ],
+    "Area": [
+        {
+            "name": "Square Meter",
+            "abbr": "m²",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "1"
+            }
+        },
+        {
+            "name": "Square Kilometer",
+            "abbr": "km²",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000000"
+            }
+        },
+        {
+            "name": "Square Decimeter",
+            "abbr": "dm²",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.01"
+            }
+        },
+        {
+            "name": "Square Centimeter",
+            "abbr": "cm²",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.0001"
+            }
+        },
+        {
+            "name": "Square Millimeter",
+            "abbr": "mm²",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000001"
+            }
+        },
+        {
+            "name": "Square Micrometer",
+            "abbr": "μm²",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000000000001"
+            }
+        },
+        {
+            "name": "Are",
+            "abbr": "a",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "100"
+            }
+        },
+        {
+            "name": "Stremma",
+            "abbr": "str",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000"
+            }
+        },
+        {
+            "name": "Hectare",
+            "abbr": "ha",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "10000"
+            }
+        },
+        {
+            "name": "Tetrad",
+            "abbr": "tetrad",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "4000000"
+            }
+        },
+        {
+            "name": "Hectad",
+            "abbr": "hectad",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "100000000"
+            }
+        },
+        {
+            "name": "Myriad",
+            "abbr": "myriad",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "10000000000"
+            }
+        },
+        {
+            "name": "Square Mile",
+            "abbr": "mi²",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "2589988.110336"
+            }
+        },
+        {
+            "name": "Square Yard",
+            "abbr": "yd²",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.83612736"
+            }
+        },
+        {
+            "name": "Square Foot",
+            "abbr": "ft²",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.09290304"
+            }
+        },
+        {
+            "name": "Square Inch",
+            "abbr": "in²",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.00064516"
+            }
+        },
+        {
+            "name": "Acre",
+            "abbr": "ac",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "4046.8564224"
+            }
+        },
+        {
+            "name": "Rood",
+            "abbr": "rood",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1011.7141056"
+            }
+        },
+        {
+            "name": "Section",
+            "abbr": "section",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "2589988.110336"
+            }
+        },
+        {
+            "name": "Survey Township",
+            "abbr": "township",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "93239571.972096"
+            }
+        }
+    ],
+    "Volume": [
+        {
+            "name": "Cubic Meter",
+            "abbr": "m³",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "1"
+            }
+        },
+        {
+            "name": "Cubic Centimeter",
+            "abbr": "cm³",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000001"
+            }
+        },
+        {
+            "name": "Cubic Millimeter",
+            "abbr": "mm³",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000000001"
+            }
+        },
+        {
+            "name": "Cubic Yard",
+            "abbr": "yd³",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.764554857984001"
+            }
+        },
+        {
+            "name": "Cubic Foot",
+            "abbr": "ft³",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.028316846592"
+            }
+        },
+        {
+            "name": "Cubic Inch",
+            "abbr": "in³",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000016387064"
+            }
+        },
+        {
+            "name": "Litre",
+            "abbr": "L",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.001"
+            }
+        },
+        {
+            "name": "Millilitre",
+            "abbr": "mL",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000001"
+            }
+        },
+        {
+            "name": "Barrel",
+            "abbr": "bbl",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.158987294928"
+            }
+        },
+        {
+            "name": "Gallon (Imperial)",
+            "abbr": "gal (imp)",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.00454609"
+            }
+        },
+        {
+            "name": "Quart (Imperial)",
+            "abbr": "qt (imp)",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.0011365225"
+            }
+        },
+        {
+            "name": "Pint (Imperial)",
+            "abbr": "pt (imp)",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.00056826125"
+            }
+        },
+        {
+            "name": "Cup (US Customary)",
+            "abbr": "cup (US)",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.0002365882365"
+            }
+        },
+        {
+            "name": "Tablespoon (US Customary)",
+            "abbr": "tbsp (US)",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.00001478676478125"
+            }
+        },
+        {
+            "name": "Teaspoon (US Customary)",
+            "abbr": "tsp (US)",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.00000492892159375"
+            }
+        }
     ]
 }
