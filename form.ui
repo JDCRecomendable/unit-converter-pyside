@@ -41,6 +41,11 @@
           </item>
           <item>
            <widget class="QLineEdit" name="fromUnitInput">
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
             <property name="alignment">
              <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
@@ -60,6 +65,11 @@
            <widget class="QLineEdit" name="toUnitOutput">
             <property name="enabled">
              <bool>true</bool>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>16</pointsize>
+             </font>
             </property>
             <property name="alignment">
              <set>Qt::AlignmentFlag::AlignCenter</set>

@@ -77,6 +77,9 @@ class Ui_MainWindow(object):
 
         self.fromUnitInput = QLineEdit(self.centralwidget)
         self.fromUnitInput.setObjectName(u"fromUnitInput")
+        font = QFont()
+        font.setPointSize(16)
+        self.fromUnitInput.setFont(font)
         self.fromUnitInput.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.fromUnitArea.addWidget(self.fromUnitInput)
@@ -94,6 +97,7 @@ class Ui_MainWindow(object):
         self.toUnitOutput = QLineEdit(self.centralwidget)
         self.toUnitOutput.setObjectName(u"toUnitOutput")
         self.toUnitOutput.setEnabled(True)
+        self.toUnitOutput.setFont(font)
         self.toUnitOutput.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.toUnitOutput.setReadOnly(True)
 
