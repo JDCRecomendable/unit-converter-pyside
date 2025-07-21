@@ -167,6 +167,15 @@ class UnitCategory:
         """
         return self.name
 
+    def get_units(self) -> list[Unit]:
+        """
+        Returns the units belonging to the unit category.
+
+        Returns:
+            list[Unit]: The list of the units belonging to the unit category.
+        """
+        return self.units
+
     def add_unit(self, unit: Unit):
         """
         Adds a unit to the category, maintaining alphabetical order by unit name.

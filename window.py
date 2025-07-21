@@ -16,9 +16,17 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+        self.unit_definitions = unit_definitions
+
         unit_category_model = QStandardItemModel()
+        self.from_unit_model = QStandardItemModel()
+        self.to_unit_model = QStandardItemModel()
+
         self.ui.unitCategoryListView.setModel(unit_category_model)
-        for unit_category in unit_definitions:
+        self.ui.fromUnitPicker.setModel(self.from_unit_model)
+        self.ui.toUnitPicker.setModel(self.to_unit_model)
+
+        for unit_category in self.unit_definitions:
             unit_category_name = unit_category.get_name()
             unit_category_item = QStandardItem(unit_category_name)
             unit_category_item.setFlags(unit_category_item.flags()  & ~Qt.ItemIsEditable)
@@ -26,8 +34,15 @@ class MainWindow(QMainWindow):
 
     @Slot("QModelIndex")
     def on_unitCategoryListView_clicked(self, model_index: QModelIndex):
-        print(type(model_index))
-        print(model_index)
-        print(model_index.row())
-        print(model_index.data())
-        print()
+        self.from_unit_model.clear()
+        self.to_unit_model.clear()
+
+        target_unit_category = self.unit_definitions[model_index.row()]
+        target_units = target_unit_category.get_units()
+        for unit in target_units:
+            from_unit_item = QStandardItem(f"{unit.get_name()} [{unit.get_abbr()}]")
+            from_unit_item.setFlags(from_unit_item.flags()  & ~Qt.ItemIsEditable)
+            self.from_unit_model.appendRow(from_unit_item)
+            to_unit_item = QStandardItem(f"{unit.get_name()} [{unit.get_abbr()}]")
+            to_unit_item.setFlags(to_unit_item.flags()  & ~Qt.ItemIsEditable)
+            self.to_unit_model.appendRow(to_unit_item)
