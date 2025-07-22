@@ -618,5 +618,142 @@
                 "m": "31622400"
             }
         }
+    ],
+    "Speed": [
+        {
+            "name": "Meter per Second",
+            "abbr": "m/s",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "1"
+            }
+        },
+        {
+            "name": "Meter per Minute",
+            "abbr": "m/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.0166666666666666666666666666666667"
+            }
+        },
+        {
+            "name": "Meter per Hour",
+            "abbr": "m/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000277777777777777777777777777778"
+            }
+        },
+        {
+            "name": "Kilometer per Second",
+            "abbr": "km/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000"
+            }
+        },
+        {
+            "name": "Kilometer per Minute",
+            "abbr": "km/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "16.6666666666666666666666666666667"
+            }
+        },
+        {
+            "name": "Kilometer per Hour",
+            "abbr": "km/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.277777777777777777777777777777778"
+            }
+        },
+        {
+            "name": "Speed of Light",
+            "abbr": "c",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "299792458"
+            }
+        },
+        {
+            "name": "Foot per Second",
+            "abbr": "ft/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.3048"
+            }
+        },
+        {
+            "name": "Foot per Minute",
+            "abbr": "ft/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.00508"
+            }
+        },
+        {
+            "name": "Foot per Hour",
+            "abbr": "ft/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.0000846666666666666666666666666667"
+            }
+        },
+        {
+            "name": "Mile per Second",
+            "abbr": "mi/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1609.344"
+            }
+        },
+        {
+            "name": "Mile per Minute",
+            "abbr": "mi/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "96.56064"
+            }
+        },
+        {
+            "name": "Mile per Hour",
+            "abbr": "mi/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.44704"
+            }
+        },
+        {
+            "name": "Mach",
+            "abbr": "Ma",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "340.29"
+            }
+        },
+        {
+            "name": "Knot",
+            "abbr": "kn",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.514"
+            }
+        }
     ]
 }
