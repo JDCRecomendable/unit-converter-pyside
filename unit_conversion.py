@@ -189,6 +189,15 @@ class UnitCategory:
 
 
 def load_units(filepath: Path) -> list[UnitCategory]:
+    """
+    Loads unit definitions from a JSON file and creates a list of UnitCategory objects.
+
+    Args:
+        filepath (Path): The path to the JSON file containing unit definitions.
+
+    Returns:
+        list[UnitCategory]: A list of UnitCategory objects, each containing its units.
+    """
     units = []
     with open(filepath, "r") as f:
         unit_definitions = load(f)
