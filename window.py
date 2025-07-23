@@ -114,7 +114,7 @@ class MainWindow(QMainWindow):
         to_unit = target_units.get_units()[to_unit_index_int]
         decimal_result = convert(value, from_unit, to_unit)
         f_result = float(decimal_result)
-        i_result = int(decimal_result)
+        i_result = round(decimal_result)
         result = str(i_result) if (i_result - f_result == 0) else str(round(f_result, 5))
         self.ui.toUnitOutput.setText(result)
         self.ui.statusbar.showMessage(f"Conversion from {from_unit.get_name()} to {to_unit.get_name()} successful.")
