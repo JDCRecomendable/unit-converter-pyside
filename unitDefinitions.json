@@ -756,6 +756,134 @@
             }
         }
     ],
+    "Mass": [
+        {
+            "name": "Kilogram",
+            "abbr": "kg",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "1"
+            }
+        },
+        {
+            "name": "Gram",
+            "abbr": "g",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.001"
+            }
+        },
+        {
+            "name": "Carat",
+            "abbr": "ct",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.0002"
+            }
+        },
+        {
+            "name": "Milligram",
+            "abbr": "mg",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000001"
+            }
+        },
+        {
+            "name": "Microgram",
+            "abbr": "μg",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1E-9"
+            }
+        },
+        {
+            "name": "Tonne (Metric)",
+            "abbr": "t",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000"
+            }
+        },
+        {
+            "name": "Kilotonne (Metric)",
+            "abbr": "kt",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000000"
+            }
+        },
+        {
+            "name": "Pound",
+            "abbr": "lb",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.4535923699999991373541298396"
+            }
+        },
+        {
+            "name": "Ounce",
+            "abbr": "oz",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.02834952312499994608463311498"
+            }
+        },
+        {
+            "name": "Stone (UK)",
+            "abbr": "st.",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "6.350293179999987922957817754"
+            }
+        },
+        {
+            "name": "Ton (Short)",
+            "abbr": "t (US)",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "907.1847399999982747082596792"
+            }
+        },
+        {
+            "name": "Ton (Long)",
+            "abbr": "LT",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1016.046908799998067673250841"
+            }
+        },
+        {
+            "name": "Kiloton (Short)",
+            "abbr": "kt (US)",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "907184.7399999982747082596792"
+            }
+        },
+        {
+            "name": "Kiloton (Long)",
+            "abbr": "",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1016046.908799998067673250841"
+            }
+        }
+    ],
     "Flow Rate (Area)": [
         {
             "name": "Square Meter per Second",
@@ -1475,6 +1603,1054 @@
             "isSiUnit": false,
             "conversionFactors": {
                 "m": "1079.161712640000260657553707"
+            }
+        }
+    ],
+        "Flow Rate (Volume)": [
+        {
+            "name": "Cubic Meter per Second",
+            "abbr": "m³/s",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "1"
+            }
+        },
+        {
+            "name": "Cubic Centimeter per Second",
+            "abbr": "cm³/s",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "0.000001"
+            }
+        },
+        {
+            "name": "Cubic Millimeter per Second",
+            "abbr": "mm³/s",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "0.000000001"
+            }
+        },
+        {
+            "name": "Cubic Yard per Second",
+            "abbr": "yd³/s/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.764554857984001"
+            }
+        },
+        {
+            "name": "Cubic Foot per Second",
+            "abbr": "ft³/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.028316846592"
+            }
+        },
+        {
+            "name": "Cubic Inch per Second",
+            "abbr": "in³/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000016387064"
+            }
+        },
+        {
+            "name": "Litre per Second",
+            "abbr": "L/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.001"
+            }
+        },
+        {
+            "name": "Millilitre per Second",
+            "abbr": "mL/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000001"
+            }
+        },
+        {
+            "name": "Barrel per Second",
+            "abbr": "bbl/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.158987294928"
+            }
+        },
+        {
+            "name": "Gallon (Imperial) per Second",
+            "abbr": "gal (imp) / s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.00454609"
+            }
+        },
+        {
+            "name": "Quart (Imperial) per Second",
+            "abbr": "qt (imp) / s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.0011365225"
+            }
+        },
+        {
+            "name": "Pint (Imperial) per Second",
+            "abbr": "pt (imp) / s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.00056826125"
+            }
+        },
+        {
+            "name": "Cup (US Customary) per Second",
+            "abbr": "cup (US) / s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.0002365882365"
+            }
+        },
+        {
+            "name": "Tablespoon (US Customary) per Second",
+            "abbr": "tbsp (US) / s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.00001478676478125"
+            }
+        },
+        {
+            "name": "Teaspoon (US Customary) per Second",
+            "abbr": "tsp (US) / s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.00000492892159375"
+            }
+        },
+        {
+            "name": "Cubic Meter per Minute",
+            "abbr": "m³/min",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "0.01666666666666666666666666667"
+            }
+        },
+        {
+            "name": "Cubic Centimeter per Minute",
+            "abbr": "cm³/min",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "1.666666666666666666666666667E-8"
+            }
+        },
+        {
+            "name": "Cubic Millimeter per Minute",
+            "abbr": "mm³/min",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "1.666666666666666666666666667E-11"
+            }
+        },
+        {
+            "name": "Cubic Yard per Minute",
+            "abbr": "yd³/s/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.01274258096640001666666666667"
+            }
+        },
+        {
+            "name": "Cubic Foot per Minute",
+            "abbr": "ft³/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.0004719474432"
+            }
+        },
+        {
+            "name": "Cubic Inch per Minute",
+            "abbr": "in³/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "2.731177333333333333333333333E-7"
+            }
+        },
+        {
+            "name": "Litre per Minute",
+            "abbr": "L/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.00001666666666666666666666666667"
+            }
+        },
+        {
+            "name": "Millilitre per Minute",
+            "abbr": "mL/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1.666666666666666666666666667E-8"
+            }
+        },
+        {
+            "name": "Barrel per Minute",
+            "abbr": "bbl/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.0026497882488"
+            }
+        },
+        {
+            "name": "Gallon (Imperial) per Minute",
+            "abbr": "gal (imp) / min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.00007576816666666666666666666667"
+            }
+        },
+        {
+            "name": "Quart (Imperial) per Minute",
+            "abbr": "qt (imp) / min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.00001894204166666666666666666667"
+            }
+        },
+        {
+            "name": "Pint (Imperial) per Minute",
+            "abbr": "pt (imp) / min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000009471020833333333333333333333"
+            }
+        },
+        {
+            "name": "Cup (US Customary) per Minute",
+            "abbr": "cup (US) / min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000003943137275"
+            }
+        },
+        {
+            "name": "Tablespoon (US Customary) per Minute",
+            "abbr": "tbsp (US) / min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "2.464460796875E-7"
+            }
+        },
+        {
+            "name": "Teaspoon (US Customary) per Minute",
+            "abbr": "tsp (US) / min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "8.214869322916666666666666667E-8"
+            }
+        },
+        {
+            "name": "Cubic Meter per Hour",
+            "abbr": "m³/h",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "0.0002777777777777777777777777778"
+            }
+        },
+        {
+            "name": "Cubic Centimeter per Hour",
+            "abbr": "cm³/h",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "2.777777777777777777777777778E-10"
+            }
+        },
+        {
+            "name": "Cubic Millimeter per Hour",
+            "abbr": "mm³/h",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "2.777777777777777777777777778E-13"
+            }
+        },
+        {
+            "name": "Cubic Yard per Hour",
+            "abbr": "yd³/s/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.0002123763494400002777777777778"
+            }
+        },
+        {
+            "name": "Cubic Foot per Hour",
+            "abbr": "ft³/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.00000786579072"
+            }
+        },
+        {
+            "name": "Cubic Inch per Hour",
+            "abbr": "in³/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "4.551962222222222222222222222E-9"
+            }
+        },
+        {
+            "name": "Litre per Hour",
+            "abbr": "L/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "2.777777777777777777777777778E-7"
+            }
+        },
+        {
+            "name": "Millilitre per Hour",
+            "abbr": "mL/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "2.777777777777777777777777778E-10"
+            }
+        },
+        {
+            "name": "Barrel per Hour",
+            "abbr": "bbl/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.00004416313748"
+            }
+        },
+        {
+            "name": "Gallon (Imperial) per Hour",
+            "abbr": "gal (imp) / h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000001262802777777777777777777778"
+            }
+        },
+        {
+            "name": "Quart (Imperial) per Hour",
+            "abbr": "qt (imp) / h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "3.157006944444444444444444444E-7"
+            }
+        },
+        {
+            "name": "Pint (Imperial) per Hour",
+            "abbr": "pt (imp) / h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1.578503472222222222222222222E-7"
+            }
+        },
+        {
+            "name": "Cup (US Customary) per Hour",
+            "abbr": "cup (US) / h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "6.571895458333333333333333333E-8"
+            }
+        },
+        {
+            "name": "Tablespoon (US Customary) per Hour",
+            "abbr": "tbsp (US) / h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "4.107434661458333333333333333E-9"
+            }
+        },
+        {
+            "name": "Teaspoon (US Customary) per Hour",
+            "abbr": "tsp (US) / h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1.369144887152777777777777778E-9"
+            }
+        },
+        {
+            "name": "Cubic Meter per Day",
+            "abbr": "m³/d",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "0.00001157407407407407407407407407"
+            }
+        },
+        {
+            "name": "Cubic Centimeter per Day",
+            "abbr": "cm³/d",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "1.157407407407407407407407407E-11"
+            }
+        },
+        {
+            "name": "Cubic Millimeter per Day",
+            "abbr": "mm³/d",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "1.157407407407407407407407407E-14"
+            }
+        },
+        {
+            "name": "Cubic Yard per Day",
+            "abbr": "yd³/s/d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000008849014560000011574074074074"
+            }
+        },
+        {
+            "name": "Cubic Foot per Day",
+            "abbr": "ft³/d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "3.2774128E-7"
+            }
+        },
+        {
+            "name": "Cubic Inch per Day",
+            "abbr": "in³/d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1.896650925925925925925925926E-10"
+            }
+        },
+        {
+            "name": "Litre per Day",
+            "abbr": "L/d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1.157407407407407407407407407E-8"
+            }
+        },
+        {
+            "name": "Millilitre per Day",
+            "abbr": "mL/d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1.157407407407407407407407407E-11"
+            }
+        },
+        {
+            "name": "Barrel per Day",
+            "abbr": "bbl/d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000001840130728333333333333333333"
+            }
+        },
+        {
+            "name": "Gallon (Imperial) per Day",
+            "abbr": "gal (imp) / d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "5.261678240740740740740740741E-8"
+            }
+        },
+        {
+            "name": "Quart (Imperial) per Day",
+            "abbr": "qt (imp) / d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1.315419560185185185185185185E-8"
+            }
+        },
+        {
+            "name": "Pint (Imperial) per Day",
+            "abbr": "pt (imp) / d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "6.577097800925925925925925926E-9"
+            }
+        },
+        {
+            "name": "Cup (US Customary) per Day",
+            "abbr": "cup (US) / d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "2.738289774305555555555555556E-9"
+            }
+        },
+        {
+            "name": "Tablespoon (US Customary) per Day",
+            "abbr": "tbsp (US) / d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1.711431108940972222222222222E-10"
+            }
+        },
+        {
+            "name": "Teaspoon (US Customary) per Day",
+            "abbr": "tsp (US) / d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "5.704770363136574074074074074E-11"
+            }
+        }
+    ],
+    "Flow Rate (Mass)": [
+        {
+            "name": "Kilogram per Second",
+            "abbr": "kg/s",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "1"
+            }
+        },
+        {
+            "name": "Gram per Second",
+            "abbr": "g/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.001"
+            }
+        },
+        {
+            "name": "Carat per Second",
+            "abbr": "ct/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.0002"
+            }
+        },
+        {
+            "name": "Milligram per Second",
+            "abbr": "mg/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000001"
+            }
+        },
+        {
+            "name": "Microgram per Second",
+            "abbr": "μg/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1E-9"
+            }
+        },
+        {
+            "name": "Tonne (Metric) per Second",
+            "abbr": "t/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000"
+            }
+        },
+        {
+            "name": "Kilotonne (Metric) per Second",
+            "abbr": "kt/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000000"
+            }
+        },
+        {
+            "name": "Pound per Second",
+            "abbr": "lb/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.4535923699999991373541298396"
+            }
+        },
+        {
+            "name": "Ounce per Second",
+            "abbr": "oz/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.02834952312499994608463311498"
+            }
+        },
+        {
+            "name": "Stone (UK) per Second",
+            "abbr": "st./s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "6.350293179999987922957817754"
+            }
+        },
+        {
+            "name": "Ton (Short) per Second",
+            "abbr": "t (US)/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "907.1847399999982747082596792"
+            }
+        },
+        {
+            "name": "Ton (Long) per Second",
+            "abbr": "LT/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1016.046908799998067673250841"
+            }
+        },
+        {
+            "name": "Kiloton (Short) per Second",
+            "abbr": "kt (US)/s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "907184.7399999982747082596792"
+            }
+        },
+        {
+            "name": "Kiloton (Long) per Second",
+            "abbr": "",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1016046.908799998067673250841"
+            }
+        },
+        {
+            "name": "Kilogram per Minute",
+            "abbr": "kg/min",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "0.01666666666666666666666666667"
+            }
+        },
+        {
+            "name": "Gram per Minute",
+            "abbr": "g/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.00001666666666666666666666666667"
+            }
+        },
+        {
+            "name": "Carat per Minute",
+            "abbr": "ct/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000003333333333333333333333333333"
+            }
+        },
+        {
+            "name": "Milligram per Minute",
+            "abbr": "mg/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1.666666666666666666666666667E-8"
+            }
+        },
+        {
+            "name": "Microgram per Minute",
+            "abbr": "μg/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1.666666666666666666666666667E-11"
+            }
+        },
+        {
+            "name": "Tonne (Metric) per Minute",
+            "abbr": "t/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "16.66666666666666666666666667"
+            }
+        },
+        {
+            "name": "Kilotonne (Metric) per Minute",
+            "abbr": "kt/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "16666.66666666666666666666667"
+            }
+        },
+        {
+            "name": "Pound per Minute",
+            "abbr": "lb/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.007559872833333318955902163993"
+            }
+        },
+        {
+            "name": "Ounce per Minute",
+            "abbr": "oz/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.0004724920520833324347438852497"
+            }
+        },
+        {
+            "name": "Stone (UK) per Minute",
+            "abbr": "st./min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.1058382196666664653826302959"
+            }
+        },
+        {
+            "name": "Ton (Short) per Minute",
+            "abbr": "t (US)/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "15.11974566666663791180432799"
+            }
+        },
+        {
+            "name": "Ton (Long) per Minute",
+            "abbr": "LT/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "16.93411514666663446122084735"
+            }
+        },
+        {
+            "name": "Kiloton (Short) per Minute",
+            "abbr": "kt (US)/min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "15119.74566666663791180432799"
+            }
+        },
+        {
+            "name": "Kiloton (Long) per Minute",
+            "abbr": "",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "16934.11514666663446122084735"
+            }
+        },
+        {
+            "name": "Kilogram per Hour",
+            "abbr": "kg/h",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "0.0002777777777777777777777777778"
+            }
+        },
+        {
+            "name": "Gram per Hour",
+            "abbr": "g/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "2.777777777777777777777777778E-7"
+            }
+        },
+        {
+            "name": "Carat per Hour",
+            "abbr": "ct/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "5.555555555555555555555555556E-8"
+            }
+        },
+        {
+            "name": "Milligram per Hour",
+            "abbr": "mg/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "2.777777777777777777777777778E-10"
+            }
+        },
+        {
+            "name": "Microgram per Hour",
+            "abbr": "μg/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "2.777777777777777777777777778E-13"
+            }
+        },
+        {
+            "name": "Tonne (Metric) per Hour",
+            "abbr": "t/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.2777777777777777777777777778"
+            }
+        },
+        {
+            "name": "Kilotonne (Metric) per Hour",
+            "abbr": "kt/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "277.7777777777777777777777778"
+            }
+        },
+        {
+            "name": "Pound per Hour",
+            "abbr": "lb/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.0001259978805555553159317027332"
+            }
+        },
+        {
+            "name": "Ounce per Hour",
+            "abbr": "oz/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000007874867534722207245731420828"
+            }
+        },
+        {
+            "name": "Stone (UK) per Hour",
+            "abbr": "st./h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.001763970327777774423043838265"
+            }
+        },
+        {
+            "name": "Ton (Short) per Hour",
+            "abbr": "t (US)/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.2519957611111106318634054664"
+            }
+        },
+        {
+            "name": "Ton (Long) per Hour",
+            "abbr": "LT/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.2822352524444439076870141225"
+            }
+        },
+        {
+            "name": "Kiloton (Short) per Hour",
+            "abbr": "kt (US)/h",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "251.9957611111106318634054664"
+            }
+        },
+        {
+            "name": "Kiloton (Long) per Hour",
+            "abbr": "",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "282.2352524444439076870141225"
+            }
+        },
+        {
+            "name": "Kilogram per Day",
+            "abbr": "kg/d",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "0.00001157407407407407407407407407"
+            }
+        },
+        {
+            "name": "Gram per Day",
+            "abbr": "g/d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1.157407407407407407407407407E-8"
+            }
+        },
+        {
+            "name": "Carat per Day",
+            "abbr": "ct/d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "2.314814814814814814814814815E-9"
+            }
+        },
+        {
+            "name": "Milligram per Day",
+            "abbr": "mg/d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1.157407407407407407407407407E-11"
+            }
+        },
+        {
+            "name": "Microgram per Day",
+            "abbr": "μg/d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1.157407407407407407407407407E-14"
+            }
+        },
+        {
+            "name": "Tonne (Metric) per Day",
+            "abbr": "t/d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.01157407407407407407407407407"
+            }
+        },
+        {
+            "name": "Kilotonne (Metric) per Day",
+            "abbr": "kt/d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "11.57407407407407407407407407"
+            }
+        },
+        {
+            "name": "Pound per Day",
+            "abbr": "lb/d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000005249911689814804830487613884"
+            }
+        },
+        {
+            "name": "Ounce per Day",
+            "abbr": "oz/d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "3.281194806134253019054758678E-7"
+            }
+        },
+        {
+            "name": "Stone (UK) per Day",
+            "abbr": "st./d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.00007349876365740726762682659438"
+            }
+        },
+        {
+            "name": "Ton (Short) per Day",
+            "abbr": "t (US)/d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.01049982337962960966097522777"
+            }
+        },
+        {
+            "name": "Ton (Long) per Day",
+            "abbr": "LT/d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.01175980218518516282029225510"
+            }
+        },
+        {
+            "name": "Kiloton (Short) per Day",
+            "abbr": "kt (US)/d",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "10.49982337962960966097522777"
+            }
+        },
+        {
+            "name": "Kiloton (Long) per Day",
+            "abbr": "",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "11.75980218518516282029225510"
             }
         }
     ]
