@@ -2,7 +2,7 @@
 from decimal import Decimal
 
 from PySide6.QtCore import QModelIndex, Qt, Slot
-from PySide6.QtGui import QDoubleValidator, QStandardItem, QStandardItemModel
+from PySide6.QtGui import QDoubleValidator, QStandardItem, QStandardItemModel, QKeySequence
 from PySide6.QtWidgets import QMainWindow
 
 # Important:
@@ -17,6 +17,9 @@ class MainWindow(QMainWindow):
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        # Support Ctrl+Q shortcut on Linux/Windows
+        self.ui.actionQuit.setShortcut(QKeySequence("Ctrl+Q"))
+        self.ui.actionQuit.triggered.connect(self.close)
 
         self.unit_definitions = unit_definitions
 
