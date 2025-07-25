@@ -1,9 +1,10 @@
 # This Python file uses the following encoding: utf-8
 from decimal import Decimal
+import sys
 
 from PySide6.QtCore import QModelIndex, Qt, Slot
 from PySide6.QtGui import QDoubleValidator, QStandardItem, QStandardItemModel, QKeySequence
-from PySide6.QtWidgets import QLineEdit, QMainWindow, QTextEdit
+from PySide6.QtWidgets import QLineEdit, QMainWindow, QTextEdit, QApplication
 # Important:
 # You need to run the following command to generate the ui_form.py file
 #     pyside6-uic form.ui -o ui_form.py, or
@@ -32,6 +33,15 @@ class MainWindow(QMainWindow):
         self.ui.actionMinimize.setShortcut(QKeySequence("Ctrl+M"))
         self.ui.actionZoom.setShortcut(QKeySequence("Ctrl+Shift+M"))
         self.ui.actionEnter_Full_Screen.setShortcut(QKeySequence.FullScreen)
+        # Clipboard copy actions shortcuts
+        if sys.platform == "darwin":
+            # macOS shortcuts
+            self.ui.actionCopy_Input_to_Clipboard.setShortcut(QKeySequence("Ctrl+Shift+C"))
+            self.ui.actionCopy_Result_to_Clipboard.setShortcut(QKeySequence("Ctrl+Alt+C"))
+        else:
+            # Other platforms shortcuts
+            self.ui.actionCopy_Input_to_Clipboard.setShortcut(QKeySequence("Ctrl+Alt+C"))
+            self.ui.actionCopy_Result_to_Clipboard.setShortcut(QKeySequence("Ctrl+Shift+C"))
         self.ui.actionQuit.triggered.connect(self.close)
         self.ui.actionCut.triggered.connect(self.on_edit_cut)
         self.ui.actionCopy.triggered.connect(self.on_edit_copy)
@@ -44,6 +54,12 @@ class MainWindow(QMainWindow):
         self.ui.actionMinimize.triggered.connect(self.on_window_minimize)
         self.ui.actionZoom.triggered.connect(self.on_window_zoom)
         self.ui.actionEnter_Full_Screen.triggered.connect(self.on_window_enter_full_screen)
+        self.ui.actionCopy_Input_to_Clipboard.triggered.connect(
+            self.on_copy_input_to_clipboard
+        )
+        self.ui.actionCopy_Result_to_Clipboard.triggered.connect(
+            self.on_copy_result_to_clipboard
+        )
 
         self.unit_definitions = unit_definitions
 
@@ -220,3 +236,13 @@ class MainWindow(QMainWindow):
             self.showNormal()
         else:
             self.showFullScreen()
+
+    @Slot()
+    def on_copy_input_to_clipboard(self):
+        text = self.ui.fromUnitInput.text()
+        QApplication.clipboard().setText(text)
+
+    @Slot()
+    def on_copy_result_to_clipboard(self):
+        text = self.ui.toUnitOutput.text()
+        QApplication.clipboard().setText(text)
