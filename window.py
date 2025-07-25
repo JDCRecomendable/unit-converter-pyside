@@ -212,12 +212,14 @@ class MainWindow(QMainWindow):
         w = self.focusWidget()
         if hasattr(w, "undo"):
             w.undo()
+            self.ui.statusbar.showMessage("Undo successful.")
 
     @Slot()
     def on_edit_redo(self):
         w = self.focusWidget()
         if hasattr(w, "redo"):
             w.redo()
+            self.ui.statusbar.showMessage("Redo successful.")
 
     @Slot()
     def on_window_minimize(self):
@@ -241,8 +243,10 @@ class MainWindow(QMainWindow):
     def on_copy_input_to_clipboard(self):
         text = self.ui.fromUnitInput.text()
         QApplication.clipboard().setText(text)
+        self.ui.statusbar.showMessage("Input value copied to clipboard.")
 
     @Slot()
     def on_copy_result_to_clipboard(self):
         text = self.ui.toUnitOutput.text()
         QApplication.clipboard().setText(text)
+        self.ui.statusbar.showMessage("Result copied to clipboard.")
