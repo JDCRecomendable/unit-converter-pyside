@@ -28,6 +28,10 @@ class MainWindow(QMainWindow):
         self.ui.actionRedo.setShortcut(QKeySequence.Redo)
         # Standard shortcut for Reset (Cmd+R on macOS, Ctrl+R on Windows/Linux)
         self.ui.actionReset.setShortcut(QKeySequence.Refresh)
+        # Window menu shortcuts
+        self.ui.actionMinimize.setShortcut(QKeySequence("Ctrl+M"))
+        self.ui.actionZoom.setShortcut(QKeySequence("Ctrl+Shift+M"))
+        self.ui.actionEnter_Full_Screen.setShortcut(QKeySequence.FullScreen)
         self.ui.actionQuit.triggered.connect(self.close)
         self.ui.actionCut.triggered.connect(self.on_edit_cut)
         self.ui.actionCopy.triggered.connect(self.on_edit_copy)
@@ -37,6 +41,9 @@ class MainWindow(QMainWindow):
         self.ui.actionUndo.triggered.connect(self.on_edit_undo)
         self.ui.actionRedo.triggered.connect(self.on_edit_redo)
         self.ui.actionReset.triggered.connect(self.on_resetButton_clicked)
+        self.ui.actionMinimize.triggered.connect(self.on_window_minimize)
+        self.ui.actionZoom.triggered.connect(self.on_window_zoom)
+        self.ui.actionEnter_Full_Screen.triggered.connect(self.on_window_enter_full_screen)
 
         self.unit_definitions = unit_definitions
 
@@ -195,3 +202,21 @@ class MainWindow(QMainWindow):
         w = self.focusWidget()
         if hasattr(w, "redo"):
             w.redo()
+
+    @Slot()
+    def on_window_minimize(self):
+        self.showMinimized()
+
+    @Slot()
+    def on_window_zoom(self):
+        if self.isMaximized():
+            self.showNormal()
+        else:
+            self.showMaximized()
+
+    @Slot()
+    def on_window_enter_full_screen(self):
+        if self.windowState() & Qt.WindowFullScreen:
+            self.showNormal()
+        else:
+            self.showFullScreen()
