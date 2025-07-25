@@ -3,8 +3,7 @@ from decimal import Decimal
 
 from PySide6.QtCore import QModelIndex, Qt, Slot
 from PySide6.QtGui import QDoubleValidator, QStandardItem, QStandardItemModel, QKeySequence
-from PySide6.QtWidgets import QMainWindow
-
+from PySide6.QtWidgets import QLineEdit, QMainWindow, QTextEdit
 # Important:
 # You need to run the following command to generate the ui_form.py file
 #     pyside6-uic form.ui -o ui_form.py, or
@@ -19,7 +18,25 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         # Support Ctrl+Q shortcut on Linux/Windows
         self.ui.actionQuit.setShortcut(QKeySequence("Ctrl+Q"))
+        # Standard shortcuts for edit actions
+        self.ui.actionCut.setShortcut(QKeySequence.Cut)
+        self.ui.actionCopy.setShortcut(QKeySequence.Copy)
+        self.ui.actionPaste.setShortcut(QKeySequence.Paste)
+        self.ui.actionDelete.setShortcut(QKeySequence.Delete)
+        self.ui.actionSelect_All.setShortcut(QKeySequence.SelectAll)
+        self.ui.actionUndo.setShortcut(QKeySequence.Undo)
+        self.ui.actionRedo.setShortcut(QKeySequence.Redo)
+        # Standard shortcut for Reset (Cmd+R on macOS, Ctrl+R on Windows/Linux)
+        self.ui.actionReset.setShortcut(QKeySequence.Refresh)
         self.ui.actionQuit.triggered.connect(self.close)
+        self.ui.actionCut.triggered.connect(self.on_edit_cut)
+        self.ui.actionCopy.triggered.connect(self.on_edit_copy)
+        self.ui.actionPaste.triggered.connect(self.on_edit_paste)
+        self.ui.actionDelete.triggered.connect(self.on_edit_delete)
+        self.ui.actionSelect_All.triggered.connect(self.on_edit_select_all)
+        self.ui.actionUndo.triggered.connect(self.on_edit_undo)
+        self.ui.actionRedo.triggered.connect(self.on_edit_redo)
+        self.ui.actionReset.triggered.connect(self.on_resetButton_clicked)
 
         self.unit_definitions = unit_definitions
 
@@ -118,3 +135,63 @@ class MainWindow(QMainWindow):
         result = str(i_result) if (i_result - f_result == 0) else str(round(f_result, 5))
         self.ui.toUnitOutput.setText(result)
         self.ui.statusbar.showMessage(f"Conversion from {from_unit.get_name()} to {to_unit.get_name()} successful.")
+
+    @Slot()
+    def on_edit_cut(self):
+        w = self.focusWidget()
+        if hasattr(w, "cut"):
+            w.cut()
+
+    @Slot()
+    def on_edit_copy(self):
+        w = self.focusWidget()
+        if hasattr(w, "copy"):
+            w.copy()
+
+    @Slot()
+    def on_edit_paste(self):
+        w = self.focusWidget()
+        if hasattr(w, "paste"):
+            w.paste()
+
+    @Slot()
+    def on_edit_delete(self):
+        w = self.focusWidget()
+        if isinstance(w, QLineEdit):
+            pos = w.cursorPosition()
+            text = w.text()
+            sel_len = len(w.selectedText())
+            if sel_len > 0:
+                start = w.selectionStart()
+                text = text[:start] + text[start + sel_len:]
+                w.setText(text)
+                w.setCursorPosition(start)
+            elif pos < len(text):
+                text = text[:pos] + text[pos + 1:]
+                w.setText(text)
+                w.setCursorPosition(pos)
+        elif isinstance(w, QTextEdit):
+            cursor = w.textCursor()
+            if cursor.hasSelection():
+                cursor.removeSelectedText()
+            else:
+                cursor.deleteChar()
+            w.setTextCursor(cursor)
+
+    @Slot()
+    def on_edit_select_all(self):
+        w = self.focusWidget()
+        if hasattr(w, "selectAll"):
+            w.selectAll()
+
+    @Slot()
+    def on_edit_undo(self):
+        w = self.focusWidget()
+        if hasattr(w, "undo"):
+            w.undo()
+
+    @Slot()
+    def on_edit_redo(self):
+        w = self.focusWidget()
+        if hasattr(w, "redo"):
+            w.redo()
