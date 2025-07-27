@@ -180,6 +180,12 @@
    </property>
   </action>
   <action name="actionUse_Smart_Rounding">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Use Smart Rounding</string>
    </property>
@@ -205,41 +211,65 @@
    </property>
   </action>
   <action name="actionRound_off_to_whole_number">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Round off to whole number</string>
    </property>
   </action>
   <action name="actionRound_off_to_1_d_p">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Round off to 1 d.p.</string>
    </property>
   </action>
   <action name="actionRound_off_to_2_d_p">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Round off to 2 d.p.</string>
    </property>
   </action>
   <action name="actionRound_off_to_3_d_p">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Round off to 3 d.p.</string>
    </property>
   </action>
   <action name="actionRound_off_to_4_d_p">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Round off to 4 d.p.</string>
    </property>
   </action>
   <action name="actionRound_off_to_5_d_p">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Round off to 5 d.p.</string>
    </property>
   </action>
   <action name="actionRound_off_to_6_d_p">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Round off to 6 d.p.</string>
    </property>
   </action>
   <action name="actionRound_off_to_7_d_p">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Round off to 7 d.p.</string>
    </property>
@@ -295,16 +325,25 @@
    </property>
   </action>
   <action name="actionRound_off_to_8_d_p">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Round off to 8 d.p.</string>
    </property>
   </action>
   <action name="actionRound_off_to_9_d_p">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Round off to 9 d.p.</string>
    </property>
   </action>
   <action name="actionRound_off_to_10_d_p">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Round off to 10 d.p.</string>
    </property>
