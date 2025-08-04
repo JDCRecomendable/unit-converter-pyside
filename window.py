@@ -17,19 +17,31 @@ class MainWindow(QMainWindow):
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        # Support Ctrl+Q shortcut on Linux/Windows
+
+        # region KEYBOARD SHORTCUTS > File menu shortcuts
         self.ui.actionQuit.setShortcut(QKeySequence("Ctrl+Q"))
-        # Standard shortcuts for edit actions
+        self.ui.actionQuit.triggered.connect(self.close)
+        # endregion
+
+        # region KEYBOARD SHORTCUTS > Edit menu shortcuts
+        self.ui.actionUndo.setShortcut(QKeySequence.Undo)
+        self.ui.actionRedo.setShortcut(QKeySequence.Redo)
         self.ui.actionCut.setShortcut(QKeySequence.Cut)
         self.ui.actionCopy.setShortcut(QKeySequence.Copy)
         self.ui.actionPaste.setShortcut(QKeySequence.Paste)
         self.ui.actionDelete.setShortcut(QKeySequence.Delete)
         self.ui.actionSelect_All.setShortcut(QKeySequence.SelectAll)
-        self.ui.actionUndo.setShortcut(QKeySequence.Undo)
-        self.ui.actionRedo.setShortcut(QKeySequence.Redo)
-        # Standard shortcut for Reset (Cmd+R on macOS, Ctrl+R on Windows/Linux)
         self.ui.actionReset.setShortcut(QKeySequence.Refresh)
-        # View menu shortcuts
+        # Clipboard copy actions shortcuts
+        if sys.platform == "darwin":
+            self.ui.actionCopy_Input_to_Clipboard.setShortcut(QKeySequence("Ctrl+Shift+C"))
+            self.ui.actionCopy_Result_to_Clipboard.setShortcut(QKeySequence("Ctrl+Alt+C"))
+        else:
+            self.ui.actionCopy_Input_to_Clipboard.setShortcut(QKeySequence("Ctrl+Alt+C"))
+            self.ui.actionCopy_Result_to_Clipboard.setShortcut(QKeySequence("Ctrl+Shift+C"))
+        # endregion
+
+        # region KEYBOARD SHORTCUTS > View menu shortcuts
         self.ui.actionUse_Smart_Rounding.setShortcut("Alt+Shift+Z")
         self.ui.actionRound_off_to_whole_number.setShortcut("Alt+Shift+W")
         self.ui.actionRound_off_to_1_d_p.setShortcut("Alt+Shift+1")
@@ -42,37 +54,15 @@ class MainWindow(QMainWindow):
         self.ui.actionRound_off_to_8_d_p.setShortcut("Alt+Shift+8")
         self.ui.actionRound_off_to_9_d_p.setShortcut("Alt+Shift+9")
         self.ui.actionRound_off_to_10_d_p.setShortcut("Alt+Shift+0")
-        # Window menu shortcuts
+        # endregion
+
+        # region KEYBOARD SHORTCUTS > Window menu shortcuts
         self.ui.actionMinimize.setShortcut(QKeySequence("Ctrl+M"))
         self.ui.actionZoom.setShortcut(QKeySequence("Ctrl+Shift+M"))
         self.ui.actionEnter_Full_Screen.setShortcut(QKeySequence.FullScreen)
-        # Clipboard copy actions shortcuts
-        if sys.platform == "darwin":
-            # macOS shortcuts
-            self.ui.actionCopy_Input_to_Clipboard.setShortcut(QKeySequence("Ctrl+Shift+C"))
-            self.ui.actionCopy_Result_to_Clipboard.setShortcut(QKeySequence("Ctrl+Alt+C"))
-        else:
-            # Other platforms shortcuts
-            self.ui.actionCopy_Input_to_Clipboard.setShortcut(QKeySequence("Ctrl+Alt+C"))
-            self.ui.actionCopy_Result_to_Clipboard.setShortcut(QKeySequence("Ctrl+Shift+C"))
-        self.ui.actionQuit.triggered.connect(self.close)
-        self.ui.actionCut.triggered.connect(self.on_edit_cut)
-        self.ui.actionCopy.triggered.connect(self.on_edit_copy)
-        self.ui.actionPaste.triggered.connect(self.on_edit_paste)
-        self.ui.actionDelete.triggered.connect(self.on_edit_delete)
-        self.ui.actionSelect_All.triggered.connect(self.on_edit_select_all)
-        self.ui.actionUndo.triggered.connect(self.on_edit_undo)
-        self.ui.actionRedo.triggered.connect(self.on_edit_redo)
-        self.ui.actionReset.triggered.connect(self.on_resetButton_clicked)
-        self.ui.actionMinimize.triggered.connect(self.on_window_minimize)
-        self.ui.actionZoom.triggered.connect(self.on_window_zoom)
-        self.ui.actionEnter_Full_Screen.triggered.connect(self.on_window_enter_full_screen)
-        self.ui.actionCopy_Input_to_Clipboard.triggered.connect(
-            self.on_copy_input_to_clipboard
-        )
-        self.ui.actionCopy_Result_to_Clipboard.triggered.connect(
-            self.on_copy_result_to_clipboard
-        )
+        # endregion
+
+        # region MAIN INIT
 
         self.unit_definitions = unit_definitions
 
@@ -100,6 +90,10 @@ class MainWindow(QMainWindow):
             unit_category_model.appendRow(unit_category_item)
 
         self.ui.statusbar.showMessage("Application ready. Select a unit category.")
+
+        # endregion
+
+    # region MAIN ACTIONS
 
     @Slot("QModelIndex")
     def on_unitCategoryListView_currentChanged(self, model_index: QModelIndex):
@@ -137,8 +131,8 @@ class MainWindow(QMainWindow):
     def on_fromUnitInput_textEdited(self, text: str):
         self.perform_conversion()
 
-    @Slot(bool)
-    def on_resetButton_clicked(self, checked: bool):
+    @Slot()
+    def on_resetButton_clicked(self):
         self.ui.fromUnitInput.setText("")
         self.perform_conversion()
         self.ui.statusbar.showMessage("Text fields have been reset.")
@@ -172,26 +166,44 @@ class MainWindow(QMainWindow):
         self.ui.toUnitOutput.setText(result)
         self.ui.statusbar.showMessage(f"Conversion from {from_unit.get_name()} to {to_unit.get_name()} successful.")
 
+    # endregion
+
+    # region MENU ACTIONS > Edit menu
+
     @Slot()
-    def on_edit_cut(self):
+    def on_actionUndo_triggered(self):
+        w = self.focusWidget()
+        if hasattr(w, "undo"):
+            w.undo()
+            self.ui.statusbar.showMessage("Undo successful.")
+
+    @Slot()
+    def on_actionRedo_triggered(self):
+        w = self.focusWidget()
+        if hasattr(w, "redo"):
+            w.redo()
+            self.ui.statusbar.showMessage("Redo successful.")
+
+    @Slot()
+    def on_actionCut_triggered(self):
         w = self.focusWidget()
         if hasattr(w, "cut"):
             w.cut()
 
     @Slot()
-    def on_edit_copy(self):
+    def on_actionCopy_triggered(self):
         w = self.focusWidget()
         if hasattr(w, "copy"):
             w.copy()
 
     @Slot()
-    def on_edit_paste(self):
+    def on_actionPaste_triggered(self):
         w = self.focusWidget()
         if hasattr(w, "paste"):
             w.paste()
 
     @Slot()
-    def on_edit_delete(self):
+    def on_actionDelete_triggered(self):
         w = self.focusWidget()
         if isinstance(w, QLineEdit):
             pos = w.cursorPosition()
@@ -215,51 +227,47 @@ class MainWindow(QMainWindow):
             w.setTextCursor(cursor)
 
     @Slot()
-    def on_edit_select_all(self):
+    def on_actionSelect_All_triggered(self):
         w = self.focusWidget()
         if hasattr(w, "selectAll"):
             w.selectAll()
 
     @Slot()
-    def on_edit_undo(self):
-        w = self.focusWidget()
-        if hasattr(w, "undo"):
-            w.undo()
-            self.ui.statusbar.showMessage("Undo successful.")
+    def on_actionReset_triggered(self):
+        self.on_resetButton_clicked()
 
     @Slot()
-    def on_edit_redo(self):
-        w = self.focusWidget()
-        if hasattr(w, "redo"):
-            w.redo()
-            self.ui.statusbar.showMessage("Redo successful.")
+    def on_actionCopy_Input_to_Clipboard_triggered(self):
+        text = self.ui.fromUnitInput.text()
+        QApplication.clipboard().setText(text)
+        self.ui.statusbar.showMessage("Input value copied to clipboard.")
 
     @Slot()
-    def on_window_minimize(self):
+    def on_actionCopy_Result_to_Clipboard_triggered(self):
+        text = self.ui.toUnitOutput.text()
+        QApplication.clipboard().setText(text)
+        self.ui.statusbar.showMessage("Result copied to clipboard.")
+
+    # endregion
+
+    # region MENU ACTIONS > Window menu
+
+    @Slot()
+    def on_actionMinimize_triggered(self):
         self.showMinimized()
 
     @Slot()
-    def on_window_zoom(self):
+    def on_actionZoom_triggered(self):
         if self.isMaximized():
             self.showNormal()
         else:
             self.showMaximized()
 
     @Slot()
-    def on_window_enter_full_screen(self):
+    def on_actionEnter_Full_Screen_triggered(self):
         if self.windowState() & Qt.WindowFullScreen:
             self.showNormal()
         else:
             self.showFullScreen()
 
-    @Slot()
-    def on_copy_input_to_clipboard(self):
-        text = self.ui.fromUnitInput.text()
-        QApplication.clipboard().setText(text)
-        self.ui.statusbar.showMessage("Input value copied to clipboard.")
-
-    @Slot()
-    def on_copy_result_to_clipboard(self):
-        text = self.ui.toUnitOutput.text()
-        QApplication.clipboard().setText(text)
-        self.ui.statusbar.showMessage("Result copied to clipboard.")
+    # endregion
