@@ -19,7 +19,7 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
 
         # region KEYBOARD SHORTCUTS > File menu shortcuts
-        self.ui.actionQuit.setShortcut(QKeySequence("Ctrl+Q"))
+        self.ui.actionQuit.setShortcut(QKeySequence.Quit)
         self.ui.actionQuit.triggered.connect(self.close)
         # endregion
 
