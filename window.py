@@ -17,6 +17,7 @@ class MainWindow(QMainWindow):
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.rounding_value = 5
 
         # region KEYBOARD SHORTCUTS > File menu shortcuts
         self.ui.actionQuit.setShortcut(QKeySequence.Quit)
@@ -162,7 +163,7 @@ class MainWindow(QMainWindow):
         decimal_result = convert(value, from_unit, to_unit)
         f_result = float(decimal_result)
         i_result = round(decimal_result)
-        result = str(i_result) if (i_result - f_result == 0) else str(round(f_result, 5))
+        result = str(i_result) if (i_result - f_result == 0) else f"{round(f_result, self.rounding_value):.{self.rounding_value}f}"
         self.ui.toUnitOutput.setText(result)
         self.ui.statusbar.showMessage(f"Conversion from {from_unit.get_name()} to {to_unit.get_name()} successful.")
 
@@ -247,6 +248,120 @@ class MainWindow(QMainWindow):
         text = self.ui.toUnitOutput.text()
         QApplication.clipboard().setText(text)
         self.ui.statusbar.showMessage("Result copied to clipboard.")
+
+    # endregion
+
+    # region MENU ACTIONS > View menu
+
+    @Slot(bool)
+    def on_actionUse_Smart_Rounding_triggered(self, is_checked: bool):
+        self._uncheck_rounding_menu_options()
+        self.ui.actionUse_Smart_Rounding.setChecked(True)
+        self.rounding_value = 5  # TODO we must go beyond this.
+        self.perform_conversion()
+        self.ui.statusbar.showMessage("Preferences updated: Now using smart rounding.")
+
+    @Slot(bool)
+    def on_actionRound_off_to_whole_number_triggered(self, is_checked: bool):
+        self._uncheck_rounding_menu_options()
+        self.ui.actionRound_off_to_whole_number.setChecked(True)
+        self.rounding_value = 0
+        self.perform_conversion()
+        self.ui.statusbar.showMessage("Preferences updated: Now rounding off to nearest whole number.")
+
+    @Slot(bool)
+    def on_actionRound_off_to_1_d_p_triggered(self, is_checked: bool):
+        self._uncheck_rounding_menu_options()
+        self.ui.actionRound_off_to_1_d_p.setChecked(True)
+        self.rounding_value = 1
+        self.perform_conversion()
+        self.ui.statusbar.showMessage("Preferences updated: Now rounding off to 1 d.p.")
+
+    @Slot(bool)
+    def on_actionRound_off_to_2_d_p_triggered(self, is_checked: bool):
+        self._uncheck_rounding_menu_options()
+        self.ui.actionRound_off_to_2_d_p.setChecked(True)
+        self.rounding_value = 2
+        self.perform_conversion()
+        self.ui.statusbar.showMessage("Preferences updated: Now rounding off to 2 d.p.")
+
+    @Slot(bool)
+    def on_actionRound_off_to_3_d_p_triggered(self, is_checked: bool):
+        self._uncheck_rounding_menu_options()
+        self.ui.actionRound_off_to_3_d_p.setChecked(True)
+        self.rounding_value = 3
+        self.perform_conversion()
+        self.ui.statusbar.showMessage("Preferences updated: Now rounding off to 3 d.p.")
+
+    @Slot(bool)
+    def on_actionRound_off_to_4_d_p_triggered(self, is_checked: bool):
+        self._uncheck_rounding_menu_options()
+        self.ui.actionRound_off_to_4_d_p.setChecked(True)
+        self.rounding_value = 4
+        self.perform_conversion()
+        self.ui.statusbar.showMessage("Preferences updated: Now rounding off to 4 d.p.")
+
+    @Slot(bool)
+    def on_actionRound_off_to_5_d_p_triggered(self, is_checked: bool):
+        self._uncheck_rounding_menu_options()
+        self.ui.actionRound_off_to_5_d_p.setChecked(True)
+        self.rounding_value = 5
+        self.perform_conversion()
+        self.ui.statusbar.showMessage("Preferences updated: Now rounding off to 5 d.p.")
+
+    @Slot(bool)
+    def on_actionRound_off_to_6_d_p_triggered(self, is_checked: bool):
+        self._uncheck_rounding_menu_options()
+        self.ui.actionRound_off_to_6_d_p.setChecked(True)
+        self.rounding_value = 6
+        self.perform_conversion()
+        self.ui.statusbar.showMessage("Preferences updated: Now rounding off to 6 d.p.")
+
+    @Slot(bool)
+    def on_actionRound_off_to_7_d_p_triggered(self, is_checked: bool):
+        self._uncheck_rounding_menu_options()
+        self.ui.actionRound_off_to_7_d_p.setChecked(True)
+        self.rounding_value = 7
+        self.perform_conversion()
+        self.ui.statusbar.showMessage("Preferences updated: Now rounding off to 7 d.p.")
+
+    @Slot(bool)
+    def on_actionRound_off_to_8_d_p_triggered(self, is_checked: bool):
+        self._uncheck_rounding_menu_options()
+        self.ui.actionRound_off_to_8_d_p.setChecked(True)
+        self.rounding_value = 8
+        self.perform_conversion()
+        self.ui.statusbar.showMessage("Preferences updated: Now rounding off to 8 d.p.")
+
+    @Slot(bool)
+    def on_actionRound_off_to_9_d_p_triggered(self, is_checked: bool):
+        self._uncheck_rounding_menu_options()
+        self.ui.actionRound_off_to_9_d_p.setChecked(True)
+        self.rounding_value = 9
+        self.perform_conversion()
+        self.ui.statusbar.showMessage("Preferences updated. Now rounding off to 9 d.p.")
+
+    @Slot(bool)
+    def on_actionRound_off_to_10_d_p_triggered(self, is_checked: bool):
+        self._uncheck_rounding_menu_options()
+        self.ui.actionRound_off_to_10_d_p.setChecked(True)
+        self.rounding_value = 10
+        self.perform_conversion()
+        self.ui.statusbar.showMessage("Preferences updated. Now rounding off to 10 d.p.")
+
+    def _uncheck_rounding_menu_options(self):
+        self.ui.actionUse_Smart_Rounding.setChecked(False)
+        self.ui.actionRound_off_to_whole_number.setChecked(False)
+        self.ui.actionRound_off_to_1_d_p.setChecked(False)
+        self.ui.actionRound_off_to_2_d_p.setChecked(False)
+        self.ui.actionRound_off_to_3_d_p.setChecked(False)
+        self.ui.actionRound_off_to_4_d_p.setChecked(False)
+        self.ui.actionRound_off_to_5_d_p.setChecked(False)
+        self.ui.actionRound_off_to_6_d_p.setChecked(False)
+        self.ui.actionRound_off_to_7_d_p.setChecked(False)
+        self.ui.actionRound_off_to_8_d_p.setChecked(False)
+        self.ui.actionRound_off_to_9_d_p.setChecked(False)
+        self.ui.actionRound_off_to_10_d_p.setChecked(False)
 
     # endregion
 
