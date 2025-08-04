@@ -3,7 +3,7 @@ from decimal import Decimal
 import sys
 
 from PySide6.QtCore import QModelIndex, Qt, Slot
-from PySide6.QtGui import QDoubleValidator, QStandardItem, QStandardItemModel, QKeySequence
+from PySide6.QtGui import QDoubleValidator, QGuiApplication, QStandardItem, QStandardItemModel, QKeySequence
 from PySide6.QtWidgets import QLineEdit, QMainWindow, QTextEdit, QApplication
 # Important:
 # You need to run the following command to generate the ui_form.py file
@@ -90,7 +90,7 @@ class MainWindow(QMainWindow):
             unit_category_item.setFlags(unit_category_item.flags()  & ~Qt.ItemIsEditable)
             unit_category_model.appendRow(unit_category_item)
 
-        self.ui.statusbar.showMessage("Application ready. Select a unit category.")
+        self.set_statusbar_message("Application ready. Select a unit category.")
 
         # endregion
 
@@ -118,7 +118,7 @@ class MainWindow(QMainWindow):
             to_index = self.to_unit_model.index(0, 0)
             self.ui.toUnitPicker.setCurrentIndex(to_index)
 
-        self.ui.statusbar.showMessage(f"{target_unit_category.get_name()} units loaded.")
+        self.set_statusbar_message(f"{target_unit_category.get_name()} units loaded.")
 
     @Slot("QModelIndex")
     def on_fromUnitPicker_currentChanged(self, model_index: QModelIndex):
@@ -136,13 +136,13 @@ class MainWindow(QMainWindow):
     def on_resetButton_clicked(self):
         self.ui.fromUnitInput.setText("")
         self.perform_conversion()
-        self.ui.statusbar.showMessage("Text fields have been reset.")
+        self.set_statusbar_message("Text fields have been reset.", "success")
 
     def perform_conversion(self):
         raw_value = self.ui.fromUnitInput.text()
         if len(raw_value) == 0:
             self.ui.toUnitOutput.setText("")
-            self.ui.statusbar.clearMessage()
+            self.set_statusbar_message("")
             return
         value = Decimal(raw_value)
         unit_category_index = self.ui.unitCategoryListView.currentIndex()
@@ -154,7 +154,7 @@ class MainWindow(QMainWindow):
         if (from_unit_index_int == -1 or to_unit_index_int == -1):
             self.ui.fromUnitInput.setText("")
             self.ui.toUnitOutput.setText("")
-            self.ui.statusbar.clearMessage()
+            self.set_statusbar_message("")
             return
 
         target_units = self.unit_definitions[unit_category_index.row()]
@@ -165,7 +165,7 @@ class MainWindow(QMainWindow):
         i_result = round(decimal_result)
         result = str(i_result) if (i_result - f_result == 0) else f"{round(f_result, self.rounding_value):.{self.rounding_value}f}"
         self.ui.toUnitOutput.setText(result)
-        self.ui.statusbar.showMessage(f"Conversion from {from_unit.get_name()} to {to_unit.get_name()} successful.")
+        self.set_statusbar_message(f"Conversion from {from_unit.get_name()} to {to_unit.get_name()} successful.", "success")
 
     # endregion
 
@@ -176,14 +176,14 @@ class MainWindow(QMainWindow):
         w = self.focusWidget()
         if hasattr(w, "undo"):
             w.undo()
-            self.ui.statusbar.showMessage("Undo successful.")
+            self.set_statusbar_message("Undo successful.", "success")
 
     @Slot()
     def on_actionRedo_triggered(self):
         w = self.focusWidget()
         if hasattr(w, "redo"):
             w.redo()
-            self.ui.statusbar.showMessage("Redo successful.")
+            self.set_statusbar_message("Redo successful.", "success")
 
     @Slot()
     def on_actionCut_triggered(self):
@@ -241,13 +241,13 @@ class MainWindow(QMainWindow):
     def on_actionCopy_Input_to_Clipboard_triggered(self):
         text = self.ui.fromUnitInput.text()
         QApplication.clipboard().setText(text)
-        self.ui.statusbar.showMessage("Input value copied to clipboard.")
+        self.set_statusbar_message("Input value copied to clipboard.", "success")
 
     @Slot()
     def on_actionCopy_Result_to_Clipboard_triggered(self):
         text = self.ui.toUnitOutput.text()
         QApplication.clipboard().setText(text)
-        self.ui.statusbar.showMessage("Result copied to clipboard.")
+        self.set_statusbar_message("Result copied to clipboard.", "success")
 
     # endregion
 
@@ -259,7 +259,7 @@ class MainWindow(QMainWindow):
         self.ui.actionUse_Smart_Rounding.setChecked(True)
         self.rounding_value = 5  # TODO we must go beyond this.
         self.perform_conversion()
-        self.ui.statusbar.showMessage("Preferences updated: Now using smart rounding.")
+        self.set_statusbar_message("Preferences updated: Now using smart rounding.", "warn")
 
     @Slot(bool)
     def on_actionRound_off_to_whole_number_triggered(self, is_checked: bool):
@@ -267,7 +267,7 @@ class MainWindow(QMainWindow):
         self.ui.actionRound_off_to_whole_number.setChecked(True)
         self.rounding_value = 0
         self.perform_conversion()
-        self.ui.statusbar.showMessage("Preferences updated: Now rounding off to nearest whole number.")
+        self.set_statusbar_message("Preferences updated: Now rounding off to nearest whole number.", "warn")
 
     @Slot(bool)
     def on_actionRound_off_to_1_d_p_triggered(self, is_checked: bool):
@@ -275,7 +275,7 @@ class MainWindow(QMainWindow):
         self.ui.actionRound_off_to_1_d_p.setChecked(True)
         self.rounding_value = 1
         self.perform_conversion()
-        self.ui.statusbar.showMessage("Preferences updated: Now rounding off to 1 d.p.")
+        self.set_statusbar_message("Preferences updated: Now rounding off to 1 d.p.", "warn")
 
     @Slot(bool)
     def on_actionRound_off_to_2_d_p_triggered(self, is_checked: bool):
@@ -283,7 +283,7 @@ class MainWindow(QMainWindow):
         self.ui.actionRound_off_to_2_d_p.setChecked(True)
         self.rounding_value = 2
         self.perform_conversion()
-        self.ui.statusbar.showMessage("Preferences updated: Now rounding off to 2 d.p.")
+        self.set_statusbar_message("Preferences updated: Now rounding off to 2 d.p.", "warn")
 
     @Slot(bool)
     def on_actionRound_off_to_3_d_p_triggered(self, is_checked: bool):
@@ -291,7 +291,7 @@ class MainWindow(QMainWindow):
         self.ui.actionRound_off_to_3_d_p.setChecked(True)
         self.rounding_value = 3
         self.perform_conversion()
-        self.ui.statusbar.showMessage("Preferences updated: Now rounding off to 3 d.p.")
+        self.set_statusbar_message("Preferences updated: Now rounding off to 3 d.p.", "warn")
 
     @Slot(bool)
     def on_actionRound_off_to_4_d_p_triggered(self, is_checked: bool):
@@ -299,7 +299,7 @@ class MainWindow(QMainWindow):
         self.ui.actionRound_off_to_4_d_p.setChecked(True)
         self.rounding_value = 4
         self.perform_conversion()
-        self.ui.statusbar.showMessage("Preferences updated: Now rounding off to 4 d.p.")
+        self.set_statusbar_message("Preferences updated: Now rounding off to 4 d.p.", "warn")
 
     @Slot(bool)
     def on_actionRound_off_to_5_d_p_triggered(self, is_checked: bool):
@@ -307,7 +307,7 @@ class MainWindow(QMainWindow):
         self.ui.actionRound_off_to_5_d_p.setChecked(True)
         self.rounding_value = 5
         self.perform_conversion()
-        self.ui.statusbar.showMessage("Preferences updated: Now rounding off to 5 d.p.")
+        self.set_statusbar_message("Preferences updated: Now rounding off to 5 d.p.", "warn")
 
     @Slot(bool)
     def on_actionRound_off_to_6_d_p_triggered(self, is_checked: bool):
@@ -315,7 +315,7 @@ class MainWindow(QMainWindow):
         self.ui.actionRound_off_to_6_d_p.setChecked(True)
         self.rounding_value = 6
         self.perform_conversion()
-        self.ui.statusbar.showMessage("Preferences updated: Now rounding off to 6 d.p.")
+        self.set_statusbar_message("Preferences updated: Now rounding off to 6 d.p.", "warn")
 
     @Slot(bool)
     def on_actionRound_off_to_7_d_p_triggered(self, is_checked: bool):
@@ -323,7 +323,7 @@ class MainWindow(QMainWindow):
         self.ui.actionRound_off_to_7_d_p.setChecked(True)
         self.rounding_value = 7
         self.perform_conversion()
-        self.ui.statusbar.showMessage("Preferences updated: Now rounding off to 7 d.p.")
+        self.set_statusbar_message("Preferences updated: Now rounding off to 7 d.p.", "warn")
 
     @Slot(bool)
     def on_actionRound_off_to_8_d_p_triggered(self, is_checked: bool):
@@ -331,7 +331,7 @@ class MainWindow(QMainWindow):
         self.ui.actionRound_off_to_8_d_p.setChecked(True)
         self.rounding_value = 8
         self.perform_conversion()
-        self.ui.statusbar.showMessage("Preferences updated: Now rounding off to 8 d.p.")
+        self.set_statusbar_message("Preferences updated: Now rounding off to 8 d.p.", "warn")
 
     @Slot(bool)
     def on_actionRound_off_to_9_d_p_triggered(self, is_checked: bool):
@@ -339,7 +339,7 @@ class MainWindow(QMainWindow):
         self.ui.actionRound_off_to_9_d_p.setChecked(True)
         self.rounding_value = 9
         self.perform_conversion()
-        self.ui.statusbar.showMessage("Preferences updated. Now rounding off to 9 d.p.")
+        self.set_statusbar_message("Preferences updated. Now rounding off to 9 d.p.", "success")
 
     @Slot(bool)
     def on_actionRound_off_to_10_d_p_triggered(self, is_checked: bool):
@@ -347,7 +347,7 @@ class MainWindow(QMainWindow):
         self.ui.actionRound_off_to_10_d_p.setChecked(True)
         self.rounding_value = 10
         self.perform_conversion()
-        self.ui.statusbar.showMessage("Preferences updated. Now rounding off to 10 d.p.")
+        self.set_statusbar_message("Preferences updated. Now rounding off to 10 d.p.", "success")
 
     def _uncheck_rounding_menu_options(self):
         self.ui.actionUse_Smart_Rounding.setChecked(False)
@@ -384,5 +384,38 @@ class MainWindow(QMainWindow):
             self.showNormal()
         else:
             self.showFullScreen()
+
+    # endregion
+
+    # region MISC
+
+    def set_statusbar_message(self, message: str, type: str = ""):
+        if type == "success":
+            self.statusBar().setStyleSheet(
+                "QStatusBar {"
+                f"    background-color: \"{'darkgreen' if self._is_dark_mode() else 'lightgreen'}\";"
+                f"    color: {'white' if self._is_dark_mode() else 'black'};"
+                "}"
+            )
+        elif type == "warn":
+            self.statusBar().setStyleSheet(
+                "QStatusBar {"
+                f"    background-color: \"{'sienna' if self._is_dark_mode() else 'orange'}\";"
+                f"    color: {'white' if self._is_dark_mode() else 'black'};"
+                "}"
+            )
+        else:
+            self.statusBar().setStyleSheet(
+                "QStatusBar {"
+                "}"
+            )
+        self.ui.statusbar.showMessage(message)
+
+    def _is_dark_mode(self) -> bool:
+        app = QGuiApplication.instance()
+        if app is None:
+            return False
+        scheme = app.styleHints().colorScheme()
+        return scheme == Qt.ColorScheme.Dark
 
     # endregion
