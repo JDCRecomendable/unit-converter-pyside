@@ -13,7 +13,7 @@ A rewrite of the original unit converter at: https://github.com/JDCRecomendable/
 * ⚠️ Preserve value at textbox opposite to list view whose selection is changed
 * ⚠️ Make SI units more salient
 * ⚠️ Select SI units by default
-* ⚠️ Enable users to round off 😱
+* ✅ Enable users to round off
 * ⚠️ Enable users to filter through units
 * ⚠️ Enable users to add and save custom units through the GUI
 * ⚠️ Enable users to bulk add custom units using JSON

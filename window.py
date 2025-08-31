@@ -18,6 +18,7 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.rounding_value = 5
+        self.use_smart_rounding = True
 
         # region KEYBOARD SHORTCUTS > File menu shortcuts
         self.ui.actionQuit.setShortcut(QKeySequence.Quit)
@@ -161,11 +162,14 @@ class MainWindow(QMainWindow):
         from_unit = target_units.get_units()[from_unit_index_int]
         to_unit = target_units.get_units()[to_unit_index_int]
         decimal_result = convert(value, from_unit, to_unit)
-        f_result = float(decimal_result)
-        i_result = round(decimal_result)
-        result = str(i_result) if (i_result - f_result == 0) else f"{round(f_result, self.rounding_value):.{self.rounding_value}f}"
+
+        # Use smart/fixed rounding formatter
+        result = self._format_result(decimal_result)
         self.ui.toUnitOutput.setText(result)
-        self.set_statusbar_message(f"Conversion from {from_unit.get_name()} to {to_unit.get_name()} successful.", "success")
+        self.set_statusbar_message(
+            f"Conversion from {from_unit.get_name()} to {to_unit.get_name()} successful.",
+            "success",
+        )
 
     # endregion
 
@@ -257,7 +261,9 @@ class MainWindow(QMainWindow):
     def on_actionUse_Smart_Rounding_triggered(self, is_checked: bool):
         self._uncheck_rounding_menu_options()
         self.ui.actionUse_Smart_Rounding.setChecked(True)
-        self.rounding_value = 5  # TODO we must go beyond this.
+        # Enable smart rounding and set a max precision cap
+        self.use_smart_rounding = True
+        self.rounding_value = 10  # maximum decimal places to consider when smart rounding
         self.perform_conversion()
         self.set_statusbar_message("Preferences updated: Now using smart rounding.", "warn")
 
@@ -266,6 +272,7 @@ class MainWindow(QMainWindow):
         self._uncheck_rounding_menu_options()
         self.ui.actionRound_off_to_whole_number.setChecked(True)
         self.rounding_value = 0
+        self.use_smart_rounding = False
         self.perform_conversion()
         self.set_statusbar_message("Preferences updated: Now rounding off to nearest whole number.", "warn")
 
@@ -274,6 +281,7 @@ class MainWindow(QMainWindow):
         self._uncheck_rounding_menu_options()
         self.ui.actionRound_off_to_1_d_p.setChecked(True)
         self.rounding_value = 1
+        self.use_smart_rounding = False
         self.perform_conversion()
         self.set_statusbar_message("Preferences updated: Now rounding off to 1 d.p.", "warn")
 
@@ -282,6 +290,7 @@ class MainWindow(QMainWindow):
         self._uncheck_rounding_menu_options()
         self.ui.actionRound_off_to_2_d_p.setChecked(True)
         self.rounding_value = 2
+        self.use_smart_rounding = False
         self.perform_conversion()
         self.set_statusbar_message("Preferences updated: Now rounding off to 2 d.p.", "warn")
 
@@ -290,6 +299,7 @@ class MainWindow(QMainWindow):
         self._uncheck_rounding_menu_options()
         self.ui.actionRound_off_to_3_d_p.setChecked(True)
         self.rounding_value = 3
+        self.use_smart_rounding = False
         self.perform_conversion()
         self.set_statusbar_message("Preferences updated: Now rounding off to 3 d.p.", "warn")
 
@@ -298,6 +308,7 @@ class MainWindow(QMainWindow):
         self._uncheck_rounding_menu_options()
         self.ui.actionRound_off_to_4_d_p.setChecked(True)
         self.rounding_value = 4
+        self.use_smart_rounding = False
         self.perform_conversion()
         self.set_statusbar_message("Preferences updated: Now rounding off to 4 d.p.", "warn")
 
@@ -306,6 +317,7 @@ class MainWindow(QMainWindow):
         self._uncheck_rounding_menu_options()
         self.ui.actionRound_off_to_5_d_p.setChecked(True)
         self.rounding_value = 5
+        self.use_smart_rounding = False
         self.perform_conversion()
         self.set_statusbar_message("Preferences updated: Now rounding off to 5 d.p.", "warn")
 
@@ -314,6 +326,7 @@ class MainWindow(QMainWindow):
         self._uncheck_rounding_menu_options()
         self.ui.actionRound_off_to_6_d_p.setChecked(True)
         self.rounding_value = 6
+        self.use_smart_rounding = False
         self.perform_conversion()
         self.set_statusbar_message("Preferences updated: Now rounding off to 6 d.p.", "warn")
 
@@ -322,6 +335,7 @@ class MainWindow(QMainWindow):
         self._uncheck_rounding_menu_options()
         self.ui.actionRound_off_to_7_d_p.setChecked(True)
         self.rounding_value = 7
+        self.use_smart_rounding = False
         self.perform_conversion()
         self.set_statusbar_message("Preferences updated: Now rounding off to 7 d.p.", "warn")
 
@@ -330,6 +344,7 @@ class MainWindow(QMainWindow):
         self._uncheck_rounding_menu_options()
         self.ui.actionRound_off_to_8_d_p.setChecked(True)
         self.rounding_value = 8
+        self.use_smart_rounding = False
         self.perform_conversion()
         self.set_statusbar_message("Preferences updated: Now rounding off to 8 d.p.", "warn")
 
@@ -338,6 +353,7 @@ class MainWindow(QMainWindow):
         self._uncheck_rounding_menu_options()
         self.ui.actionRound_off_to_9_d_p.setChecked(True)
         self.rounding_value = 9
+        self.use_smart_rounding = False
         self.perform_conversion()
         self.set_statusbar_message("Preferences updated. Now rounding off to 9 d.p.", "success")
 
@@ -346,6 +362,7 @@ class MainWindow(QMainWindow):
         self._uncheck_rounding_menu_options()
         self.ui.actionRound_off_to_10_d_p.setChecked(True)
         self.rounding_value = 10
+        self.use_smart_rounding = False
         self.perform_conversion()
         self.set_statusbar_message("Preferences updated. Now rounding off to 10 d.p.", "success")
 
@@ -362,6 +379,37 @@ class MainWindow(QMainWindow):
         self.ui.actionRound_off_to_8_d_p.setChecked(False)
         self.ui.actionRound_off_to_9_d_p.setChecked(False)
         self.ui.actionRound_off_to_10_d_p.setChecked(False)
+
+    def _format_result(self, decimal_result: Decimal) -> str:
+        """Format result according to smart/fixed rounding settings.
+
+        Smart rounding: show up to `self.rounding_value` decimal places but trim
+        trailing zeros and any dangling decimal point. This avoids outputs like
+        "0.50000" while still capping precision.
+
+        Fixed rounding: always show exactly `self.rounding_value` decimal places
+        (or an integer when `rounding_value` is 0).
+        """
+        # Smart rounding path
+        if getattr(self, "use_smart_rounding", False):
+            # Cap precision to `rounding_value` d.p. but strip trailing zeros
+            quant = Decimal('1') if self.rounding_value == 0 else Decimal(f"1e-{self.rounding_value}")
+            q = decimal_result.quantize(quant)
+            s = format(q, 'f')  # avoid scientific notation
+            s = s.rstrip('0').rstrip('.')
+            if s == "-0":
+                s = "0"  # normalize negative zero
+            return s
+
+        # Fixed rounding path
+        if self.rounding_value == 0:
+            # Round to whole number
+            q = decimal_result.quantize(Decimal('1'))
+            return format(q, 'f')
+        else:
+            q = decimal_result.quantize(Decimal(f"1e-{self.rounding_value}"))
+            return format(q, 'f')
+
 
     # endregion
 
