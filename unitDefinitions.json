@@ -518,6 +518,166 @@
             }
         }
     ],
+    "Mass": [
+        {
+            "name": "Kilogram",
+            "abbr": "kg",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "1"
+            }
+        },
+        {
+            "name": "Gram",
+            "abbr": "g",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.001"
+            }
+        },
+        {
+            "name": "Carat",
+            "abbr": "ct",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.0002"
+            }
+        },
+        {
+            "name": "Milligram",
+            "abbr": "mg",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000001"
+            }
+        },
+        {
+            "name": "Microgram",
+            "abbr": "μg",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1E-9"
+            }
+        },
+        {
+            "name": "Tonne (Metric)",
+            "abbr": "t",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000"
+            }
+        },
+        {
+            "name": "Kilotonne (Metric)",
+            "abbr": "kt",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000000"
+            }
+        },
+        {
+            "name": "Pound",
+            "abbr": "lb",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.4535923699999991373541298396"
+            }
+        },
+        {
+            "name": "Ounce",
+            "abbr": "oz",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.02834952312499994608463311498"
+            }
+        },
+        {
+            "name": "Stone (UK)",
+            "abbr": "st.",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "6.350293179999987922957817754"
+            }
+        },
+        {
+            "name": "Ton (Short)",
+            "abbr": "t (US)",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "907.1847399999982747082596792"
+            }
+        },
+        {
+            "name": "Ton (Long)",
+            "abbr": "LT",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1016.046908799998067673250841"
+            }
+        },
+        {
+            "name": "Kiloton (Short)",
+            "abbr": "kt (US)",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "907184.7399999982747082596792"
+            }
+        },
+        {
+            "name": "Kiloton (Long)",
+            "abbr": "",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1016046.908799998067673250841"
+            }
+        }
+    ],
+    "Temperature": [
+        {
+            "name": "Kelvin",
+            "abbr": "K",
+            "unitType": "linear",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "1",
+                "c": "0"
+            }
+        },
+        {
+            "name": "Celsius",
+            "abbr": "°C",
+            "unitType": "linear",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1",
+                "c": "273.15"
+            }
+        },
+        {
+            "name": "Fahrenheit",
+            "abbr": "°F",
+            "unitType": "linear",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.55555555555555555556",
+                "c": "255.372222222222222222"
+            }
+        }
+    ],
     "Time": [
         {
             "name": "Second",
@@ -753,134 +913,6 @@
             "isSiUnit": false,
             "conversionFactors": {
                 "m": "0.514"
-            }
-        }
-    ],
-    "Mass": [
-        {
-            "name": "Kilogram",
-            "abbr": "kg",
-            "unitType": "proportional",
-            "isSiUnit": true,
-            "conversionFactors": {
-                "m": "1"
-            }
-        },
-        {
-            "name": "Gram",
-            "abbr": "g",
-            "unitType": "proportional",
-            "isSiUnit": false,
-            "conversionFactors": {
-                "m": "0.001"
-            }
-        },
-        {
-            "name": "Carat",
-            "abbr": "ct",
-            "unitType": "proportional",
-            "isSiUnit": false,
-            "conversionFactors": {
-                "m": "0.0002"
-            }
-        },
-        {
-            "name": "Milligram",
-            "abbr": "mg",
-            "unitType": "proportional",
-            "isSiUnit": false,
-            "conversionFactors": {
-                "m": "0.000001"
-            }
-        },
-        {
-            "name": "Microgram",
-            "abbr": "μg",
-            "unitType": "proportional",
-            "isSiUnit": false,
-            "conversionFactors": {
-                "m": "1E-9"
-            }
-        },
-        {
-            "name": "Tonne (Metric)",
-            "abbr": "t",
-            "unitType": "proportional",
-            "isSiUnit": false,
-            "conversionFactors": {
-                "m": "1000"
-            }
-        },
-        {
-            "name": "Kilotonne (Metric)",
-            "abbr": "kt",
-            "unitType": "proportional",
-            "isSiUnit": false,
-            "conversionFactors": {
-                "m": "1000000"
-            }
-        },
-        {
-            "name": "Pound",
-            "abbr": "lb",
-            "unitType": "proportional",
-            "isSiUnit": false,
-            "conversionFactors": {
-                "m": "0.4535923699999991373541298396"
-            }
-        },
-        {
-            "name": "Ounce",
-            "abbr": "oz",
-            "unitType": "proportional",
-            "isSiUnit": false,
-            "conversionFactors": {
-                "m": "0.02834952312499994608463311498"
-            }
-        },
-        {
-            "name": "Stone (UK)",
-            "abbr": "st.",
-            "unitType": "proportional",
-            "isSiUnit": false,
-            "conversionFactors": {
-                "m": "6.350293179999987922957817754"
-            }
-        },
-        {
-            "name": "Ton (Short)",
-            "abbr": "t (US)",
-            "unitType": "proportional",
-            "isSiUnit": false,
-            "conversionFactors": {
-                "m": "907.1847399999982747082596792"
-            }
-        },
-        {
-            "name": "Ton (Long)",
-            "abbr": "LT",
-            "unitType": "proportional",
-            "isSiUnit": false,
-            "conversionFactors": {
-                "m": "1016.046908799998067673250841"
-            }
-        },
-        {
-            "name": "Kiloton (Short)",
-            "abbr": "kt (US)",
-            "unitType": "proportional",
-            "isSiUnit": false,
-            "conversionFactors": {
-                "m": "907184.7399999982747082596792"
-            }
-        },
-        {
-            "name": "Kiloton (Long)",
-            "abbr": "",
-            "unitType": "proportional",
-            "isSiUnit": false,
-            "conversionFactors": {
-                "m": "1016046.908799998067673250841"
             }
         }
     ],
@@ -1606,7 +1638,7 @@
             }
         }
     ],
-        "Flow Rate (Volume)": [
+    "Flow Rate (Volume)": [
         {
             "name": "Cubic Meter per Second",
             "abbr": "m³/s",
@@ -2651,6 +2683,315 @@
             "isSiUnit": false,
             "conversionFactors": {
                 "m": "11.75980218518516282029225510"
+            }
+        }
+    ],
+    "Energy": [
+        {
+            "name": "Joule",
+            "abbr": "J",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "1"
+            }
+        },
+        {
+            "name": "Kilojoule",
+            "abbr": "kJ",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000"
+            }
+        },
+        {
+            "name": "Megajoule",
+            "abbr": "MJ",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000000"
+            }
+        },
+        {
+            "name": "Watt Hour",
+            "abbr": "Wh",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "3600"
+            }
+        },
+        {
+            "name": "Kilowatt Hour",
+            "abbr": "kWh",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "3600000"
+            }
+        },
+        {
+            "name": "Megawatt Hour",
+            "abbr": "MWh",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "3600000000"
+            }
+        },
+        {
+            "name": "Calorie",
+            "abbr": "cal",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "4.184"
+            }
+        },
+        {
+            "name": "Kilocalorie",
+            "abbr": "kcal",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "4184"
+            }
+        },
+        {
+            "name": "British Thermal Unit",
+            "abbr": "BTU",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1055.05585262"
+            }
+        }
+    ],
+    "Pressure": [
+        {
+            "name": "TODO",
+            "abbr": "TODO",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "1"
+            }
+        }
+    ],
+    "Luminance": [
+        {
+            "name": "TODO",
+            "abbr": "TODO",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "1"
+            }
+        }
+    ],
+    "Illuminance": [
+        {
+            "name": "TODO",
+            "abbr": "TODO",
+            "unitType": "proportional",
+            "isSiUnit": true,
+            "conversionFactors": {
+                "m": "1"
+            }
+        }
+    ],
+    "Angle": [
+        {
+            "name": "Degree",
+            "abbr": "°",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1"
+            }
+        },
+        {
+            "name": "Radian",
+            "abbr": "rad",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "57.2957795131"
+            }
+        },
+        {
+            "name": "Gradian",
+            "abbr": "ᵍ",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.9"
+            }
+        },
+        {
+            "name": "Second",
+            "abbr": "s",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000277777777777777778"
+            }
+        },
+        {
+            "name": "Minute",
+            "abbr": "min",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.016666666666666666667"
+            }
+        },
+        {
+            "name": "Octant",
+            "abbr": "Oct",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "45"
+            }
+        },
+        {
+            "name": "Sextant",
+            "abbr": "Hs",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "60"
+            }
+        },
+        {
+            "name": "Quadrant",
+            "abbr": "Q",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "90"
+            }
+        },
+        {
+            "name": "Semicircle",
+            "abbr": "semicircle",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "180"
+            }
+        },
+        {
+            "name": "Circle",
+            "abbr": "circle",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "360"
+            }
+        }
+    ],
+    "Data Size": [
+        {
+            "name": "Byte",
+            "abbr": "B",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1"
+            }
+        },
+        {
+            "name": "Kilobyte",
+            "abbr": "kB",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000"
+            }
+        },
+        {
+            "name": "Kibibyte",
+            "abbr": "KiB",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1024"
+            }
+        },
+        {
+            "name": "Megabyte",
+            "abbr": "MB",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000000"
+            }
+        },
+        {
+            "name": "Mebibyte",
+            "abbr": "MiB",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1048576"
+            }
+        },
+        {
+            "name": "Gigabyte",
+            "abbr": "GB",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000000000"
+            }
+        },
+        {
+            "name": "Gibibyte",
+            "abbr": "GiB",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1073741824"
+            }
+        },
+        {
+            "name": "Terabyte",
+            "abbr": "TB",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000000000000"
+            }
+        },
+        {
+            "name": "Tebibyte",
+            "abbr": "TiB",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1099511627776"
+            }
+        },
+        {
+            "name": "Petabyte",
+            "abbr": "PB",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000000000000000"
+            }
+        },
+        {
+            "name": "Pebibyte",
+            "abbr": "PiB",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1125899906842624"
             }
         }
     ]

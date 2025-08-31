@@ -204,13 +204,20 @@ def load_units(filepath: Path) -> list[UnitCategory]:
         for unit_category_name in unit_definitions:
             unit_category = UnitCategory(unit_category_name)
             for unit_definition in unit_definitions[unit_category_name]:
-                if unit_definition["unitType"] == "proportional":
+                if unit_definition["unitType"] == "linear":
+                    unit = LinearUnit(
+                        unit_definition["name"],
+                        unit_definition["abbr"],
+                        Decimal(unit_definition["conversionFactors"]["m"]),
+                        Decimal(unit_definition["conversionFactors"]["c"])
+                    )
+                else:
                     unit = ProportionalUnit(
                         unit_definition["name"],
                         unit_definition["abbr"],
                         Decimal(unit_definition["conversionFactors"]["m"])
                     )
-                    unit_category.add_unit(unit)
+                unit_category.add_unit(unit)
             units.append(unit_category)
     return units
 
