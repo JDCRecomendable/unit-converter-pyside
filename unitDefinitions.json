@@ -2793,12 +2793,138 @@
     ],
     "Illuminance": [
         {
-            "name": "TODO",
-            "abbr": "TODO",
+            "name": "Lux",
+            "abbr": "lx",
             "unitType": "proportional",
             "isSiUnit": true,
             "conversionFactors": {
                 "m": "1"
+            }
+        },
+        {
+            "name": "Kilolux",
+            "abbr": "klx",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000"
+            }
+        },
+        {
+            "name": "Megalux",
+            "abbr": "Mlx",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000000"
+            }
+        },
+        {
+            "name": "Gigalux",
+            "abbr": "Glx",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000000000"
+            }
+        },
+        {
+            "name": "Millilux",
+            "abbr": "mlx",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.001"
+            }
+        },
+        {
+            "name": "Microlux",
+            "abbr": "μlx",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000001"
+            }
+        },
+        {
+            "name": "Nanolux",
+            "abbr": "nlx",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.000000001"
+            }
+        },
+        {
+            "name": "Phot",
+            "abbr": "ph",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "10000"
+            }
+        },
+        {
+            "name": "Milliphot",
+            "abbr": "mph",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "10"
+            }
+        },
+        {
+            "name": "Nox",
+            "abbr": "nx",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "0.001"
+            }
+        },
+        {
+            "name": "Lumen per Square Meter",
+            "abbr": "lm/m²",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1"
+            }
+        },
+        {
+            "name": "Lumen per Square Decimeter",
+            "abbr": "lm/dm²",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "100"
+            }
+        },
+        {
+            "name": "Lumen per Square Centimeter",
+            "abbr": "lm/cm²",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "10000"
+            }
+        },
+        {
+            "name": "Lumen per Square Millimeter",
+            "abbr": "lm/mm²",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "1000000"
+            }
+        },
+        {
+            "name": "Foot-Candle",
+            "abbr": "fc",
+            "unitType": "proportional",
+            "isSiUnit": false,
+            "conversionFactors": {
+                "m": "10.76391"
             }
         }
     ],
